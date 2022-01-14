@@ -37,12 +37,12 @@ Table Ratings {
 Ref: Ratings.user_id > Users.id
 Ref: Ratings.movie_id > Movies.id
 
-Table Shelf {
+Table Shelves {
     id int [pk]
     shelf_title varchar(30) [not null]
     user_id int 
 }
-Ref: Shelf.user_id > Users.id
+Ref: Shelves.user_id > Users.id
 
 
 Table Watched {
@@ -59,4 +59,4 @@ Table Movie_shelves {
   shelf_id int
 }
 Ref: Movie_shelves.movie_id > Movies.id
-Ref: Movie_shelves.shelf_id > Shelf.id
+Ref: Movie_shelves.shelf_id > Shelves.id
