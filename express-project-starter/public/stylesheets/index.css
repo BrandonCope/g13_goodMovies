@@ -1,3 +1,19 @@
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: tan;
+}
+
 h1 {
-    color: #555555;
+    color: rgb(68, 33, 17);
+    text-align: center;
+}
+
+nav {
+    text-align: right;
+}
+
+ul > li {
+    display: inline;
+    margin: 2rem;
+    padding: 1rem;
 }

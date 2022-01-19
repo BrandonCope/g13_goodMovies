@@ -93,7 +93,6 @@ router.post('/signup',
       res.redirect('/');
     } else {
       const errors = validatorErrors.array().map((error) => error.msg);
-      console.log(errors);
       res.render('sign-up', {
         title: 'Sign-Up',
         user,
@@ -105,7 +104,7 @@ router.post('/signup',
   })
 );
 
-router.get('/login', csrfProtection, (req,res) => {
+router.get('/login', csrfProtection, (req, res) => {
   res.render('user-login', {
     title: "Login",
     csrfToken: req.csrfToken(),
@@ -123,17 +122,18 @@ const loginValidators = [
 
 
 router.post('/login',
-csrfProtection,
-loginValidators,
-asyncHandler(async(req,res) => {
-  const {
-    email,
-    password,
-  } = req.body
+  csrfProtection,
+  loginValidators,
+  asyncHandler(async (req, res) => {
+    const {
+      email,
+      password,
+    } = req.body
 
-  let errors = []
+    let errors = []
 
-  const validatorErrors = validationResult(req)
+    const validatorErrors = validationResult(req)
+
 
   if (validatorErrors.isEmpty()) {
     const user = await User.findOne({
@@ -144,8 +144,13 @@ asyncHandler(async(req,res) => {
       if (passwordMatch) {
         loginUser(req, res, user);
         return res.redirect('/')
+
       }
+      errors.push('Login failed for provided email, and password!')
+    } else {
+      errors = validatorErrors.array().map((error) => error.msg)
     }
+
     errors.push('Login failed for provided email, and password!')
   } else {
     errors = validatorErrors.array().map((error) => error.msg)
@@ -158,6 +163,7 @@ res.render("user-login", {
 })
   // const token = getUserToken(user) 
   // res.json({token})
+
 
   }));
 
