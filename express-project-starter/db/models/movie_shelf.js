@@ -6,6 +6,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Movie_Shelf.associate = function(models) {
     // associations can be defined here
+  
   };
   return Movie_Shelf;
 };
