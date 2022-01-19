@@ -3,13 +3,13 @@ const bcrypt = require('bcryptjs')
 const { check, validationResult } = require('express-validator')
 
 const { User } = require('../db/models');
-const { getUserToken } = require('../auth');
+const { loginUser } = require('../auth');
 const { csrfProtection, asyncHandler } = require('./utils');
 const { rest } = require('lodash');
 
 
-var router = express.Router();
-
+const router = express.Router();
+// router.use(requireAuth);
 
 /* GET users listing. */
 router.get('/signup', csrfProtection, (async (req, res) => {
@@ -50,7 +50,7 @@ const userValidators = [
     .withMessage("First Name must not be more that 20 characters long.")
     .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/, 'g')
     .withMessage('Password must contain at least one lowercase letter, one uppercase letter, and one special character (i.e. "!@#$%^&*")'),
-  check('password')
+  check('confirmPassword')
     .exists({ checkFalsy: true })
     .withMessage("Please provide value for Confirm Password.")
     .custom((value, { req }) => {
@@ -78,13 +78,18 @@ router.post('/signup',
         firstName,
         lastName
       }
+     
     )
+    // const token = getUserToken(user)
+    // res.json({token}) 
+
 
     const validatorErrors = validationResult(req)
     if (validatorErrors.isEmpty()) {
       const hashedPassword = await bcrypt.hash(password, 10);
       user.hashed_password = hashedPassword;
       await user.save();
+      loginUser(req, res, user);
       res.redirect('/');
     } else {
       const errors = validatorErrors.array().map((error) => error.msg);
@@ -129,26 +134,42 @@ router.post('/login',
 
     const validatorErrors = validationResult(req)
 
-    if (validatorErrors.isEmpty()) {
-      const user = await User.findOne({
-        where: { email }
-      })
-      if (user !== null) {
-        const passwordMatch = await bcrypt.compare(password, user.hashed_password.toString())
-        if (passwordMatch) {
-          return res.redirect('/')
-        }
+
+  if (validatorErrors.isEmpty()) {
+    const user = await User.findOne({
+      where: { email }
+    })
+    if (user !== null) {
+      const passwordMatch = await bcrypt.compare(password, user.hashed_password.toString())
+      if (passwordMatch) {
+        loginUser(req, res, user);
+        return res.redirect('/')
+
       }
       errors.push('Login failed for provided email, and password!')
     } else {
       errors = validatorErrors.array().map((error) => error.msg)
     }
-    res.render("user-login", {
-      title: "Login",
-      email,
-      errors,
-      csrfToken: req.csrfToken(),
-    })
+
+    errors.push('Login failed for provided email, and password!')
+  } else {
+    errors = validatorErrors.array().map((error) => error.msg)
+  }
+res.render("user-login", {
+  title: "Login",
+  email,
+  errors,
+  csrfToken: req.csrfToken(),
+})
+  // const token = getUserToken(user) 
+  // res.json({token})
+
+
   }));
+
+  // router.post('/logout', (req, res) => {
+  //   logoutUser(req, res);
+  //   res.redirect('/')
+// })
 
 module.exports = router;
