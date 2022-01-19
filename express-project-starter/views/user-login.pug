@@ -1,0 +1,20 @@
+extends layout.pug
+
+block content
+
+    h2 Login
+        if errors
+                p The following error(s) occurred:
+                ul
+                    each error in errors
+                        li= error
+        form(action="/login" method="post")
+            input(type="hidden" name="_csrf" value=csrfToken)
+            label(for="email") Email:
+            input(type="email" name="email" value=email)
+            label(for="password") Password:
+            input(type="password" name="password")
+            button(type="submit") Log In
+        a(href="/signup") Don't have an account?
+        div
+            a(href="/") Continue as Demo User.
