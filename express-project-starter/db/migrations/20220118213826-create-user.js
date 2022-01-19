@@ -16,10 +16,6 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING(20)
       },
-      username: {
-        allowNull: false,
-        type: Sequelize.STRING(20)
-      },
       hashed_password: {
         allowNull: false,
         type: Sequelize.STRING.BINARY
