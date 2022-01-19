@@ -1,9 +1,10 @@
-extends layout
-
-append head
+html
+  head
+    title="Good Movies"
     link(rel='stylesheet' href='/stylesheets/user-login.css')
+    link(href="https://fonts.googleapis.com/css2?family=Lato&family=Oswald:wght@300&family=Poppins:wght@300&display=swap" rel="stylesheet")
+  body
 
-block content
     h2 Log in to Good Movies
         #errors
             if errors
@@ -21,4 +22,6 @@ block content
                 button(type="submit") Log In
             a(href="/signup") Don't have an account?
             div
-                a(href="/") Continue as Demo User.
+                form(action="/" method='post')
+                    input(type="hidden" name="_csrf" value=csrfToken)
+                    button(type="submit") Demo User

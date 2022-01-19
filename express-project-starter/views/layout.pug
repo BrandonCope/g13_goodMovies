@@ -8,6 +8,13 @@ html
   body
     nav
       ul
-        li Log in
-        li Sign up
+        if locals.authenticated
+          p Welcome #{user.firstName}, to Good Movies
+          form(action="/logout" method='post')
+            button(type="submit") Log Out
+        else
+          a(href="/signup") Sign Up
+          div
+            a(href="/login") Log In
+
     block content
