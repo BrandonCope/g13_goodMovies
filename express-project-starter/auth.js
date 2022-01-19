@@ -27,10 +27,10 @@ const loginUser = (req, res, user) => {
 const restoreUser = async (req, res, next) => {
     if (req.session.auth) {
       const { userId } = req.session.auth;
-  
+
       try {
         const user = await User.findByPk(userId);
-  
+
         if (user) {
           res.locals.authenticated = true;
           res.locals.user = user;
@@ -52,7 +52,7 @@ const restoreUser = async (req, res, next) => {
 
 //   const requireAuth = [bearerToken(), restoreUser]
 
-module.exports = { 
+module.exports = {
     // getUserToken,
     loginUser,
     restoreUser,
