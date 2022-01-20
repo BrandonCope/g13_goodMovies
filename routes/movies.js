@@ -15,5 +15,12 @@ router.get('/',
     return res.render('movies-all', { title: 'All Movies', movies })
   }))
 
+  router.get('/:id(\\d+)', asyncHandler(async (req,res) => {
+    const movieId = parseInt(req.params.id, 10);
+    const movie = await Movie.findByPk(movieId)
+    console.log(movie.movie_title)
+    res.render('movie-detail', { title: 'Movie Detail', movie})
+}))
+
 
 module.exports = router;
