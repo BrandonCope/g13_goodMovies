@@ -4,7 +4,8 @@ html
     link(rel='stylesheet' href='/stylesheets/user-signup.css')
     link(href="https://fonts.googleapis.com/css2?family=Lato&family=Oswald:wght@300&family=Poppins:wght@300&display=swap" rel="stylesheet")
   body
-    h2 Sign Up for Good Movies
+    h1 GoodMovies
+    h2
         #errors
             if errors
                 p The following error(s) occurred:
@@ -12,19 +13,25 @@ html
                     each error in errors
                         li= error
         .form
-            form(action="/signup" method="post")
+            form(class="signup" action="/signup" method="post")
+                h3 Please Sign-Up:
                 input(type="hidden" name="_csrf" value=csrfToken)
-                label(for="firstName") First Name:
-                input(type="text" name="firstName" value=user.firstName)
-                label(for="lastName") Last Name:
-                input(type="text" name="lastName" value=user.lastName)
-                label(for="email") Email:
-                input(type="email" name="email" value=user.email)
-                label(for="password") Password:
-                input(type="password" name="password")
-                label(for="confirmPassword") Confirm Password:
-                input(type="password" name="confirmPassword")
-                button(type="submit") Sign Up
+                p
+                    label(for="firstName") First Name:
+                    input(type="text" name="firstName" value=user.firstName)
+                p 
+                    label(for="lastName") Last Name:
+                    input(type="text" name="lastName" value=user.lastName)
+                p 
+                    label(for="email") Email:
+                    input(type="email" name="email" value=user.email)
+                p
+                    label(for="password") Password:
+                    input(type="password" name="password")
+                p 
+                    label(for="confirmPassword") Confirm Password:
+                    input(type="password" name="confirmPassword")
+                    button(type="submit" id="signup_button") Sign Up
             a(href="/login") Already have an account?
             div
                 form(class="demo" action="/" method='post')

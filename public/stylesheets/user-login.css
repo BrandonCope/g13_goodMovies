@@ -1,13 +1,16 @@
 #errors {
   color: red;
+  font-size: 16px;
+  font-weight: 200;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: flex-start;
 }
 
 .form {
  margin: 2rem;
+ justify-content: center;
 }
 
 body {
@@ -15,9 +18,7 @@ body {
   background-color: rgb(244, 239, 235);
   color: rgb(68, 33, 17);
 }
-a {
-  color: rgb(68, 33, 17);
-}
+
 .login {
   box-sizing: border-box;
   font-weight: 200;
@@ -55,15 +56,51 @@ label {
   margin-right: 10px;
 }
 
-/* #login_button {
-  text-align:right;
-} */
+#login_button {
+  background:rgb(244, 239, 235);
+  width:125px;
+  padding-top:5px;
+  padding-bottom:5px;
+  color:rgb(68, 33, 17);  
+  border-radius:4px;
+  border-color: rgb(68, 33, 17);
+  border: 1px solid;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  float:none;
+  font-weight: 300;
+}
+#login_button:hover {
+  background-color: rgb(223, 200, 176);
+}
+#demo_button {
+  background:rgb(244, 239, 235);
+  width:125px;
+  padding-top:5px;
+  padding-bottom:5px;
+  color:rgb(68, 33, 17);  
+  border-radius:4px;
+  border-color: rgb(68, 33, 17);
+  border: 1px solid;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  float:none;
+  font-weight: 300;
+}
+#demo_button:hover {
+  background-color: rgb(223, 200, 176);
+}
+
 a {
+  color: rgb(68, 33, 17);
   font-weight: 200;
   font-size: 15px;
-  margin: auto;
-  padding: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
   position: relative;
   justify-content: center;
   text-align: center;
+}
+p {
+  justify-content:space-between;
 }
