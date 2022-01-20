@@ -4,9 +4,8 @@ block content
     div
         h3(class="movie-title")= movie.movie_title
     div(class="sub-detail-container")
-        ul(class="sub-detail")
-            li= movie.release_year
-            li= movie.genre
+            p= movie.release_year
+            p= movie.genre
     div(class="movie-details")
             img(class="movie-cover" src=movie.cover alt="Cover image of the User's movie of interest.")
             table
