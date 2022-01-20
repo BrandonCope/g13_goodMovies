@@ -1,0 +1,29 @@
+extend index
+
+append head
+  link(rel='stylesheet' href='/stylesheets/movies-all.css')
+
+block content
+  .movie_title
+    h2 Discover new movies!
+  .movie_container
+    table.movie_list
+      thead
+        tr
+          th
+          th Title
+          th Director
+          th Genre
+          th Actors
+          th Release Year
+      tbody
+        each movie in movies
+          tr
+            td.movie_covers
+              img(src=`${movie.cover}`)
+            td= movie.movie_title
+               a(href=`/movies/${movie.id}`)
+            td= movie.director
+            td= movie.genre
+            td= movie.main_actors
+            td= movie.release_year

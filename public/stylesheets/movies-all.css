@@ -1,0 +1,21 @@
+.movie_list {
+  width: 100vw;
+  background-color: burlywood;
+}
+
+img {
+  height: 10rem;
+}
+
+
+@media (max-width: 600px) {
+  .movie_list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  img {
+    height: 4rem
+  }
+
+}
