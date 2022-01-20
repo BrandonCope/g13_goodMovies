@@ -1,3 +1,21 @@
+.movie-title {
+    font-weight: bold;
+}
+
+.sub-detail {
+    display:flex;
+    flex-direction:row;
+    padding: 30px;
+    /* justify-content: space-around; */
+}
 .movie-cover {
     width: 250px;
-}
+  }
+
+  .leftHeader {
+    font-weight: bold;
+  }
+
+  td, th {
+    border: 1px solid black;
+  }
