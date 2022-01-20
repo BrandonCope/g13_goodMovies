@@ -82,3 +82,4 @@ module.exports = {
     return queryInterface.bulkDelete('Movie_Shelves', null, {});
   }
 };
+
