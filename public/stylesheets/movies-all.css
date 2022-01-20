@@ -1,10 +1,63 @@
+body {
+  font-family: 'Mukta', sans-serif;
+  background-color: rgb(244, 239, 235);
+  color: rgb(68, 33, 17);
+}
+
+
+h2 {
+  background-color: rgb(244, 239, 235);;
+  font-size: 2rem;
+  color: rgb(68, 33, 17);
+  margin-top: 1rem;
+  margin-left: 1rem;
+}
+
+.movie_container {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.4rem;
+  margin-top: 1rem;
+}
+
 .movie_list {
-  width: 100vw;
-  background-color: burlywood;
+  width: 98vw;
+  background-color: rgb(223, 200, 176);
 }
 
 img {
   height: 10rem;
+}
+
+thead th:nth-child(2) {
+  width: 30%;
+}
+
+a {
+  font-weight: 575;
+  font-size: 1.5rem;
+}
+
+thead th:nth-child(3) {
+  width: 15%;
+}
+
+thead th:nth-child(4) {
+  width: 10%;
+}
+
+thead th:nth-child(5) {
+  width: 20%;
+}
+
+td {
+  align-items: flex-start;
+  font-size: 1.25rem;
+}
+
+th, td {
+  padding: 0 1rem;
 }
 
 

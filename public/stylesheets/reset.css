@@ -26,3 +26,9 @@ h1 {
   font-size: 2rem;
 }
 
+#logoDiv {
+  text-align: left;
+  padding-top: 1rem;
+  padding-left: 1rem;
+  border-radius: 1rem;
+}
