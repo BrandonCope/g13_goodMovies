@@ -91,7 +91,7 @@ router.post('/signup',
       user.hashed_password = hashedPassword;
       await user.save();
       loginUser(req, res, user);
-      res.redirect('/');
+      res.redirect('/movies');
     } else {
       const errors = validatorErrors.array().map((error) => error.msg);
       res.render('sign-up', {
@@ -145,7 +145,7 @@ router.post('/login',
         if (passwordMatch) {
           console.log(req.session)
           loginUser(req, res, user);
-          return res.redirect('/')
+          return res.redirect('/movies')
 
         }
         errors.push('Login failed for provided email, and password!')
@@ -181,7 +181,7 @@ router.post('/', csrfProtection, asyncHandler(async (req, res) => {
     where: { email: "demo@user.com" }
   })
   loginUser(req, res, user);
-  return res.redirect('/')
+  return res.redirect('/movies')
 }));
 
 
