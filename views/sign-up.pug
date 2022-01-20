@@ -27,4 +27,7 @@ html
                 button(type="submit") Sign Up
             a(href="/login") Already have an account?
             div
-                a(href="/") Continue as Demo User.
+                form(class="demo" action="/" method='post')
+                    input(type="hidden" name="_csrf" value=csrfToken)
+                    button(type="submit" id="demo_button") Demo User
+
