@@ -14,6 +14,9 @@ const usersRouter = require('./routes/users');
 
 const moviesRouter = require('./routes/movies-all')
 
+
+const movieRouter = require('./routes/movie')
+
 const app = express();
 
 // view engine setup
@@ -41,6 +44,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(restoreUser);
 app.use('/', indexRouter);
 app.use(usersRouter);
+app.use('/', movieRouter);
 
 app.use('/movies', moviesRouter);
 
