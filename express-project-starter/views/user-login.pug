@@ -5,7 +5,8 @@ html
     link(href="https://fonts.googleapis.com/css2?family=Lato&family=Oswald:wght@300&family=Poppins:wght@300&display=swap" rel="stylesheet")
   body
 
-    h2 Log in to Good Movies
+    h1 GoodMovies
+    h2
         #errors
             if errors
                     p The following error(s) occurred:
@@ -13,15 +14,18 @@ html
                         each error in errors
                             li= error
         .form
-            form(action="/login" method="post")
+            form(class="login" action="/login" method="post")
+                h3 Please Log-in:
                 input(type="hidden" name="_csrf" value=csrfToken)
-                label(for="email") Email:
-                input(type="email" name="email" value=email)
-                label(for="password") Password:
-                input(type="password" name="password")
-                button(type="submit") Log In
+                p
+                    label(for="email") Email:
+                    input(type="email" name="email" value=email)
+                p
+                    label(for="password") Password:
+                    input(type="password" name="password")
+                button(type="submit" id="login_button") Log In
             a(href="/signup") Don't have an account?
             div
-                form(action="/" method='post')
+                form(class="demo" action="/" method='post')
                     input(type="hidden" name="_csrf" value=csrfToken)
-                    button(type="submit") Demo User
+                    button(type="submit" id="demo_button") Demo User

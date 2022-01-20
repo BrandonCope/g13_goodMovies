@@ -9,3 +9,61 @@
 .form {
  margin: 2rem;
 }
+
+body {
+  font-family: 'Mukta', sans-serif;
+  background-color: rgb(244, 239, 235);
+  color: rgb(68, 33, 17);
+}
+a {
+  color: rgb(68, 33, 17);
+}
+.login {
+  box-sizing: border-box;
+  font-weight: 200;
+  font-size: 18px;
+  width: 350px;
+  height: 350px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0;
+  margin: auto;
+  padding: 30px;
+  padding-top: 60px;
+  position: relative;
+  justify-content: center;
+  text-align: center;
+}
+h3 {
+  justify-content: flex-start;
+}
+h1 {
+  text-align: center;
+  box-sizing: border-box;
+  width: 300px;
+  height: 80px;
+  background-color: rgb(223, 200, 176);
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0;
+  margin: auto;
+  padding: 20px;
+  position: relative;
+  justify-content: center;
+  text-align: center;
+}
+label {
+  margin-right: 10px;
+}
+
+/* #login_button {
+  text-align:right;
+} */
+a {
+  font-weight: 200;
+  font-size: 15px;
+  margin: auto;
+  padding: auto;
+  position: relative;
+  justify-content: center;
+  text-align: center;
+}
