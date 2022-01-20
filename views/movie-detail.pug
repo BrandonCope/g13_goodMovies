@@ -1,0 +1,23 @@
+extends layout.pug
+
+block content
+    div(class="movie-header")
+        h3= movie.movie_title
+        ul(class="sub-detail")
+            li= movie.release_year
+            li= movie.genre
+
+        div(class="movie-details")
+            img(class="movie-cover" src=movie.cover alt="Cover image of the User's movie of interest.")
+            table
+                thead
+                tbody
+                    tr
+                        td(class='leftHeader') Summary
+                        td= movie.summary
+                    tr
+                        td(class='leftHeader') Director
+                        td= movie.director
+                    tr
+                        td(class='leftHeader') Stars
+                        td= movie.main_actors

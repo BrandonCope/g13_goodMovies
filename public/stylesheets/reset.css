@@ -25,3 +25,15 @@ body, header, nav {
 h1 {
   font-size: 2rem;
 }
+
+.movie-cover {
+  width: 250px;
+}
+
+.leftHeader {
+  font-weight: bold;
+}
+
+td, th {
+  border: 1px solid black;
+}
