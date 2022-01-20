@@ -1,13 +1,13 @@
 extends layout.pug
 
 block content
-    div(class="movie-header")
-        h3= movie.movie_title
+    div
+        h3(class="movie-title")= movie.movie_title
+    div(class="sub-detail-container")
         ul(class="sub-detail")
             li= movie.release_year
             li= movie.genre
-
-        div(class="movie-details")
+    div(class="movie-details")
             img(class="movie-cover" src=movie.cover alt="Cover image of the User's movie of interest.")
             table
                 thead
