@@ -3,26 +3,32 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const { sequelize } = require('./db/models');
 const session = require('express-session');
-const { restoreUser } = require('./auth');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
+
+const { sequelize } = require('./db/models');
+const { restoreUser } = require('./auth');
 const { sessionSecret } = require('./config');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+
+const moviesRouter = require('./routes/movies-all')
+
+
+const movieRouter = require('./routes/movie')
+
 const app = express();
 
 // view engine setup
 app.set('view engine', 'pug');
 
+// set up session middleware
 app.use(logger('dev'));
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// set up session middleware
 const store = new SequelizeStore({ db: sequelize });
-
 app.use(
   session({
     name: 'goodMovies.sid',
@@ -31,15 +37,16 @@ app.use(
     resave: false,
     saveUninitialized: false,
   })
-  );
+);
+store.sync(); // create Session table if it doesn't already exist
 
-  // create Session table if it doesn't already exist
-  store.sync();
+app.use(express.urlencoded({ extended: false }));
+app.use(restoreUser);
+app.use('/', indexRouter);
+app.use(usersRouter);
+app.use('/', movieRouter);
 
-  app.use(express.urlencoded({ extended: false }));
-  app.use(restoreUser);
-  app.use('/', indexRouter);
-  app.use(usersRouter);
+app.use('/movies', moviesRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
