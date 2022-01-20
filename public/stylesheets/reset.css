@@ -30,5 +30,11 @@ h1 {
   text-align: left;
   padding-top: 1rem;
   padding-left: 1rem;
+}
+
+#logoDiv > a > img {
+  height: 90px;
+  width: 375px;
+  object-fit: cover;
   border-radius: 1rem;
 }
