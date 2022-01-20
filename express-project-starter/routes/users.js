@@ -163,7 +163,8 @@ router.post('/login',
       errors,
       csrfToken: req.csrfToken(),
     })
-  }));
+  })
+);
 
 router.post('/logout', (req, res) => {
   // delete req.session.user;
@@ -173,9 +174,9 @@ router.post('/logout', (req, res) => {
 
   // })
   res.redirect('/login')
-})
+});
 
-router.post('/', csrfProtection, asyncHandler(async(req,res) => {
+router.post('/', csrfProtection, asyncHandler(async (req, res) => {
   const user = await User.findOne({
     where: { email: "demo@user.com" }
   })
