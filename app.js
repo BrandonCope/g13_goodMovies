@@ -12,7 +12,8 @@ const { sessionSecret } = require('./config');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-const moviesRouter = require('./routes/movies')
+const moviesRouter = require('./routes/movies');
+const reviewApiRouter = require('./routes/reviews');
 
 const app = express();
 
@@ -42,6 +43,7 @@ app.use(restoreUser);
 app.use('/', indexRouter);
 app.use(usersRouter);
 app.use('/movies', moviesRouter);
+app.use('/reviewApi', reviewApiRouter);
 // app.use(reviewsRouter)
 
 
