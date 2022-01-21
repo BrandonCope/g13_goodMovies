@@ -29,10 +29,11 @@ block content
                             td(class='leftHeader') My Rating
                             td= ratings.rating
         div
-            form(class='review' action='/movies/:id' method="post")
+            form(class='review' action=`/movies/${movieId}` method="post")
                 h4 Write a review:
                 input(type="hidden" name="_csrf" value=csrfToken)
-                textarea(type="text" name="review" placeholder='Type here...')
+                input(type="text" name="review_title" placeholder="Review title...")
+                textarea(type="text" name="summary" placeholder='Type review here...')
                 button(type="submit" id='review_button') Post Review
         div
             +review (reviews)

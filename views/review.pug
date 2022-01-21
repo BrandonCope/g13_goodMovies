@@ -1,8 +1,11 @@
 mixin review (reviews)
     div(class="user-review")
         each review in reviews
-            div= user.firstName
+            div= review.User.firstName
             div= review.summary
-            //- if user.  For auth of review writer to edit/delete
-            button(type="submit") Edit
-            button() Delete
+            if user_id === review.User.id
+                button(type="submit") Edit
+
+                 form(action=`/movies/${movieId}` method='post')
+                    input(type='hidden' name='_csrf' value=csrfToken)
+                    button(class='btn-delete' type='submit') Delete
