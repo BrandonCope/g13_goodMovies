@@ -1,9 +1,9 @@
 const express = require('express');
-const {Op} = require('sequelize')
-const { asyncHandler } = require('./utils');
+const { Op } = require('sequelize')
+const { asyncHandler, csrfProtection } = require('./utils');
 const { Movie, Review, Rating } = require('../db/models');
 const { isModuleSpecifier } = require('babel-types');
-// const { requireAuth } = require('../auth');
+const { requireAuth } = require('../auth');
 
 const router = express.Router()
 
@@ -15,28 +15,29 @@ router.get('/',
     return res.render('movies-all', { title: 'All Movies', movies })
   }))
 
-router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
-  const movieId = parseInt(req.params.id, 10);
-  const movie = await Movie.findByPk(movieId)
+router.get('/:id(\\d+)',
+  requireAuth,
+  csrfProtection,
+  asyncHandler(async (req, res) => {
+    const movieId = parseInt(req.params.id, 10);
 
-  const reviews = await Review.findAll({
-    where: {
-      movie_id: movieId
-    }
-  })
-  const ratings = await Rating.findOne(
-    {
+    const movie = await Movie.findByPk(movieId)
+    const reviews = await Review.findAll({
       where: {
-        [Op.and]:[
-          { movie_id: movieId },
-          { user_id},
-    ]
-    }
+        movie_id: movieId
+      }
     })
-  // console.log(ratings.rating)
-  console.log(reviews.summary)
-  res.render('movie-detail', { title: 'Movie Detail', movie, reviews, ratings })
-}))
+    const ratings = await Rating.findOne(
+      {
+        where: {
+          [Op.and]: [
+            { movie_id: movieId },
+          ]
+        }
+      })
+
+    res.render('movie-detail', { title: 'Movie Detail', movie, reviews, ratings, csrfToken: req.csrfToken() })
+  }))
 
 
 module.exports = router;

@@ -10,12 +10,11 @@ const session = require('express-session');
 
 
 const router = express.Router();
-// router.use(requireAuth);
 
 /* GET users listing. */
 router.get('/signup', csrfProtection, (async (req, res) => {
   const user = await User.build();
-  res.render('sign-up', { title: "signup", user, csrfToken: req.csrfToken(), })
+  res.render('user-signup', { title: "signup", user, csrfToken: req.csrfToken(), })
 }));
 
 const userValidators = [
@@ -79,11 +78,7 @@ router.post('/signup',
         firstName,
         lastName
       }
-
     )
-    // const token = getUserToken(user)
-    // res.json({token})
-
 
     const validatorErrors = validationResult(req)
     if (validatorErrors.isEmpty()) {
@@ -94,14 +89,13 @@ router.post('/signup',
       res.redirect('/movies');
     } else {
       const errors = validatorErrors.array().map((error) => error.msg);
-      res.render('sign-up', {
+      res.render('user-signup', {
         title: 'Sign-Up',
         user,
         errors,
         csrfToken: req.csrfToken(),
       });
     }
-
   })
 );
 
@@ -132,9 +126,7 @@ router.post('/login',
     } = req.body
 
     let errors = []
-
     const validatorErrors = validationResult(req)
-
 
     if (validatorErrors.isEmpty()) {
       const user = await User.findOne({
@@ -143,7 +135,6 @@ router.post('/login',
       if (user !== null) {
         const passwordMatch = await bcrypt.compare(password, user.hashed_password.toString())
         if (passwordMatch) {
-          // console.log(req.session)
           loginUser(req, res, user);
           return res.redirect('/movies')
 
@@ -157,6 +148,7 @@ router.post('/login',
     } else {
       errors = validatorErrors.array().map((error) => error.msg)
     }
+
     res.render("user-login", {
       title: "Login",
       email,
@@ -167,19 +159,16 @@ router.post('/login',
 );
 
 router.post('/logout', (req, res) => {
-  // delete req.session.user;
   logoutUser(req, res);
-  // req.session.save(() => {
   req.session.cookie.originalMaxAge = 0;
-
-  // })
-  res.redirect('/login')
+  res.redirect('/')
 });
 
 router.post('/', csrfProtection, asyncHandler(async (req, res) => {
   const user = await User.findOne({
     where: { email: "demo@user.com" }
   })
+
   loginUser(req, res, user);
   return res.redirect('/movies')
 }));

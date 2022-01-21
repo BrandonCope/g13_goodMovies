@@ -8,74 +8,74 @@ module.exports = {
 
       Example:
       */
-   return queryInterface.bulkInsert('Watches', [
-     {
-     user_id: 1,
-     movie_id: 1,
-     createdAt: new Date(),
-     updatedAt: new Date(),
-    },
-    {
-      user_id: 1,
-      movie_id: 2,
-      createdAt: new Date(),
-      updatedAt: new Date(),
-     },
-     {
-      user_id: 1,
-      movie_id: 3,
-      createdAt: new Date(),
-      updatedAt: new Date(),
-     },
-     {
-      user_id: 2,
-      movie_id: 2,
-      createdAt: new Date(),
-      updatedAt: new Date(),
-     },
-     {
-      user_id: 2,
-      movie_id: 3,
-      createdAt: new Date(),
-      updatedAt: new Date(),
-     },
-     {
-      user_id: 2,
-      movie_id: 4,
-      createdAt: new Date(),
-      updatedAt: new Date(),
-     },
-     {
-      user_id: 3,
-      movie_id: 4,
-      createdAt: new Date(),
-      updatedAt: new Date(),
-     },
-     {
-      user_id: 3,
-      movie_id: 5,
-      createdAt: new Date(),
-      updatedAt: new Date(),
-     },
-     {
-      user_id: 3,
-      movie_id: 6,
-      createdAt: new Date(),
-      updatedAt: new Date(),
-     },
-     {
-      user_id: 4,
-      movie_id: 6,
-      createdAt: new Date(),
-      updatedAt: new Date(),
-     },
-     {
-      user_id: 5,
-      movie_id: 3,
-      createdAt: new Date(),
-      updatedAt: new Date(),
-     },
-  ], {});
+    return queryInterface.bulkInsert('Watches', [
+      {
+        user_id: 1,
+        movie_id: 1,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        user_id: 1,
+        movie_id: 2,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        user_id: 1,
+        movie_id: 3,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        user_id: 2,
+        movie_id: 2,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        user_id: 2,
+        movie_id: 3,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        user_id: 2,
+        movie_id: 4,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        user_id: 3,
+        movie_id: 4,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        user_id: 3,
+        movie_id: 5,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        user_id: 3,
+        movie_id: 6,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        user_id: 4,
+        movie_id: 6,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        user_id: 5,
+        movie_id: 3,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+    ], {});
   },
 
   down: (queryInterface, Sequelize) => {
@@ -85,6 +85,6 @@ module.exports = {
 
       Example:
       */
-   return queryInterface.bulkDelete('Watches', null, {});
+    return queryInterface.bulkDelete('Watches', null, {});
   }
 };
