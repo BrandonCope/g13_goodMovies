@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     shelf_title: DataTypes.STRING,
     user_id: DataTypes.INTEGER
   }, {});
-  Shelf.associate = function(models) {
+  Shelf.associate = function (models) {
     const columnMapping = {
       through: "Movie_Shelf",
       otherKey: 'movie_id',
