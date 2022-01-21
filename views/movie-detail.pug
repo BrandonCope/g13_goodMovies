@@ -1,5 +1,7 @@
 extends layout.pug
 
+include review.pug
+
 block content
     div(class="main-content-container")
         div
@@ -21,3 +23,14 @@ block content
                         tr
                             td(class='leftHeader') Stars
                             td= movie.main_actors
+                        tr
+                            td(class='leftHeader') My Rating
+                            td= ratings.rating
+        div
+            form(class='review' action='/movies/:id' method="post")
+                h4 Write a review:
+                input(type="hidden" name="_csrf" value=csrfToken)
+                textarea(type="text" name="review" placeholder='Type here...')
+                button(type="submit" id='review_button') Post Review
+        div
+            +review (reviews)
