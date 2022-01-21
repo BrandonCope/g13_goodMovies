@@ -5,7 +5,7 @@ const { check, validationResult } = require('express-validator')
 const { asyncHandler, csrfProtection } = require('./utils');
 const { Movie, Review, Rating, User } = require('../db/models');
 
-const { isModuleSpecifier } = require('babel-types');
+
 const { requireAuth } = require('../auth');
 
 const router = express.Router()
@@ -19,7 +19,7 @@ router.get('/',
   }))
 
 
-router.get('/:id(\\d+)', csrfProtection, asyncHandler(async (req, res) => {
+router.get('/:id(\\d+)', requireAuth, csrfProtection, asyncHandler(async (req, res) => {
   const movieId = parseInt(req.params.id, 10);
   const movie = await Movie.findByPk(movieId)
   const user_id = req.session.auth.userId
@@ -52,6 +52,7 @@ check('summary')
 
 
 router.post('/:id(\\d+)', csrfProtection, reviewValidator, asyncHandler(async (req,res) => {
+  console.log("delete event listener test")
   const movie_id = parseInt(req.params.id, 10);
   const user_id = req.session.auth.userId
 
@@ -60,7 +61,7 @@ router.post('/:id(\\d+)', csrfProtection, reviewValidator, asyncHandler(async (r
     summary,
   } = req.body;
 
-  const reviews = Review.build({
+  const reviews = Review.build({ 
       user_id,
       movie_id,
       review_title,
@@ -93,21 +94,4 @@ const validatorErrors = validationResult(req)
 // }))
 
 
-// router.post('/:id(\\d+)', csrfProtection, asyncHandler(async (req,res) => {
-//   const movieId = req.session.movieId
-
-
-//   const reviews = await Review.findAll({
-//     where: {
-//       movie_id: movieId
-//     },
-//     include: User
-//   })
-//   reviews.forEach(review => {
-//     const reviewId = review.id
-//     reviewId.destroy();
-//     res.redirect(`/movies/${movieId}`)
-// })
-
-// }))
 module.exports = router;
