@@ -1,0 +1,18 @@
+extends layout
+
+append head
+  link(rel="stylesheet" href="/stylesheets/nav.css")
+  script(src="/javascripts/index.js" type="module" defer)
+
+block nav
+  ul
+    if locals.authenticated
+      p #{user.firstName}, welcome to Good Movies!
+        form(action="/logout" method='post')
+          button.navButton(type="submit") Log Out
+    else
+      form(action="/signup" method='get')
+          button.navButton(type="submit") Sign Up
+      div
+        form(action="/login" method='get')
+          button.navButton(type="submit") Log In

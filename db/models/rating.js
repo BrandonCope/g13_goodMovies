@@ -5,10 +5,10 @@ module.exports = (sequelize, DataTypes) => {
     movie_id: DataTypes.INTEGER,
     rating: DataTypes.INTEGER
   }, {});
-  Rating.associate = function(models) {
+  Rating.associate = function (models) {
     // associations can be defined here
-    Rating.belongsTo(models.User, { foreignKey: 'user_id'});
-    Rating.belongsTo(models.Movie, { foreignKey: 'movie_id'});
+    Rating.belongsTo(models.User, { foreignKey: 'user_id' });
+    Rating.belongsTo(models.Movie, { foreignKey: 'movie_id' });
   };
   return Rating;
 };

@@ -1,17 +1,23 @@
-extends layout
+extends layout-nav
 
 append head
   //- add page specific styles by appending to the head
-  link(rel="stylesheet" href="/stylesheets/index.css")
+  link(rel='stylesheet' href='/stylesheets/index.css')
   //- add page specific js
   script(src="/javascripts/index.js" type="module" defer)
 
+block nav
 block content
-  h1 
-    div(id="head_board")
-        th Cover 
-        th Title 
-        th Year 
-        th Director 
-        th Watched
-  
+  .buttonsContainer
+    form(class="signup" action="/signup" method='get')
+      input(type="hidden" name="_csrf" value=csrfToken)
+      button.signup(type="submit") Sign Up
+    form(class="login" action="/login" method='get')
+      input(type="hidden" name="_csrf" value=csrfToken)
+      button.signup(type="submit") Log In
+    form(class="movies" action="/movies" method='get')
+      input(type="hidden" name="_csrf" value=csrfToken)
+      button(type="submit" id="demo_button") See Movies
+    form(class="demo" action="/" method='post')
+        input(type="hidden" name="_csrf" value=csrfToken)
+        button(type="submit" id="demo_button") Demo User

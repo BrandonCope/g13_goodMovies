@@ -19,16 +19,16 @@ html
                 p
                     label(for="firstName") First Name:
                     input(type="text" name="firstName" value=user.firstName)
-                p 
+                p
                     label(for="lastName") Last Name:
                     input(type="text" name="lastName" value=user.lastName)
-                p 
+                p
                     label(for="email") Email:
                     input(type="email" name="email" value=user.email)
                 p
                     label(for="password") Password:
                     input(type="password" name="password")
-                p 
+                p
                     label(for="confirmPassword") Confirm Password:
                     input(type="password" name="confirmPassword")
                     button(type="submit" id="signup_button") Sign Up
@@ -37,4 +37,3 @@ html
                 form(class="demo" action="/" method='post')
                     input(type="hidden" name="_csrf" value=csrfToken)
                     button(type="submit" id="demo_button") Demo User
-

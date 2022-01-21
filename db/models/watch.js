@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     user_id: DataTypes.INTEGER,
     movie_id: DataTypes.INTEGER
   }, {});
-  Watch.associate = function(models) {
+  Watch.associate = function (models) {
     // associations can be defined here
   };
   return Watch;
