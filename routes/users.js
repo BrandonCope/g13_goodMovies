@@ -143,7 +143,7 @@ router.post('/login',
       if (user !== null) {
         const passwordMatch = await bcrypt.compare(password, user.hashed_password.toString())
         if (passwordMatch) {
-          console.log(req.session)
+          // console.log(req.session)
           loginUser(req, res, user);
           return res.redirect('/movies')
 
