@@ -48,7 +48,7 @@ router.get('/:id(\\d+)',
         user_id: userId
       }
     })
-
+    console.log("!!!!!!!!!!!!!!", rating)
     let ratingId;
     if (!rating) {
       ratingId = 0

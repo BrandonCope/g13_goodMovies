@@ -8,12 +8,12 @@ mixin rating(section)
         input(type="hidden" name="movieId" value=movieId)
         input(type="text" name="rating")
         button(type="submit" id='rating_button') Rate Movie
-
-    div
-      a(href=`/ratings/${ratingId}/edit`)
-          button(class='btn-edit' id=`edit-${ratingId}` type='submit') Edit Rating
-      #ratingDeleteContainer
-        #ratingDeleteForm
-          form(action=`/movies/${movieId}` method='post')
-            input(type='hidden' name='_csrf' value=csrfToken)
-            button(class='rate-btn-delete' id=`ratingDelete-${ratingId}` type='submit') Delete Rating
+    if rating
+      div
+        a(href=`/ratings/${ratingId}/edit`)
+            button(class='btn-edit' id=`edit-${ratingId}` type='submit') Edit Rating
+        #ratingDeleteContainer
+          #ratingDeleteForm
+            form(action=`/movies/${movieId}` method='post')
+              input(type='hidden' name='_csrf' value=csrfToken)
+              button(class='rate-btn-delete' id=`ratingDelete-${ratingId}` type='submit') Delete Rating
