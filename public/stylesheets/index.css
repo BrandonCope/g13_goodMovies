@@ -5,8 +5,7 @@
     justify-content: center;
 }
 
-
-button {
+.home {
     background:rgb(223, 200, 176);
     width: 300px;
     height: 80px;
@@ -18,8 +17,8 @@ button {
     border: rgb(68, 33, 17) 3px solid;
     border-radius: 10px;
     float:none;
-    font-weight: 300;
+    font-weight: 600;
 }
-button:hover {
+.home:hover {
     background-color: rgb(244, 239, 235);
 }

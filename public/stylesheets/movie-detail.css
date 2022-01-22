@@ -7,7 +7,7 @@
 }
 .movie-title {
   font-weight: bold;
-  font-size: 100px;
+  font-size: 50px;
 }
 
 .sub-detail-container {
@@ -22,7 +22,7 @@
   border: solid;
   border-radius: 20px;
   /* border-radius: 30px; */
-  padding: 10px;
+  padding: 3px 10px;
 }
 
 .movie-details {
@@ -68,7 +68,7 @@ button {
   margin-top: 20px;
   margin-bottom: 20px;
   float:none;
-  font-weight: 300;
+  font-weight: 600;
 }
 button:hover {
   background-color: rgb(244, 239, 235);

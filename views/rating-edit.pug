@@ -1,0 +1,18 @@
+extends layout-nav
+
+append head
+    link(rel='stylesheet' href='/stylesheets/movie-detail.css')
+
+block content
+  div
+    if errors
+      p#errors The following error(s) occurred:
+        ul#errors
+          each error in errors
+            li= error
+  .rating-form
+    h4 Edit your rating:
+    form(method="post" action=`/ratings/${rating.id}/edit`)
+      input(type="hidden" name="_csrf" value=csrfToken)
+      input(type="text" name="rating" value=rating.rating)
+      button(type="submit" id='rating_button') Edit Rating

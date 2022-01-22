@@ -1,8 +1,8 @@
-var express = require('express');
+const express = require('express');
 
 const { asyncHandler, csrfProtection } = require('./utils');
 
-var router = express.Router();
+const router = express.Router();
 
 /* GET home page. */
 router.get('/',
