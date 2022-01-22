@@ -10,7 +10,7 @@ const router = express.Router();
 router.post('/',
   csrfProtection,
   requireAuth,
-  asyncHandler(async (req, res) => {
+  asyncHandler(async (req, res) => {  
 
     const user_id = req.session.auth.userId;
 
