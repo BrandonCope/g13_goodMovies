@@ -9,7 +9,7 @@ block nav
     if locals.authenticated
       p #{user.firstName}, welcome to Good Movies!
         form(action="/logout" method='post')
-          button.navButton(type="submit") Log Out
+          button.logoutButton(type="submit") Log Out
     else
       form(action="/signup" method='get')
           button.navButton(type="submit") Sign Up

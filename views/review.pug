@@ -3,11 +3,12 @@ mixin review (reviews)
         each review in reviews
             div(class=`review-container-${review.id}`)
                 div= review.User.firstName
-                div= review.summary
+                div(class=`review-title`)= review.review_title
+                div(class=`review-summary`)= review.summary
                 if user_id === review.User.id
-                    button(type="submit") Edit
+                    a(href=`/reviews/${review.id}/edit`)
+                        button(class='btn-edit' id=`edit-${review.id}` type='submit') Edit
 
-                    form(id=review.id action=`/movies/${movieId}` method='post')
+                    form(action=`/movies/${movieId}` method='post')
                         input(type='hidden' name='_csrf' value=csrfToken)
                         button(class='btn-delete' id=`${review.id}` type='submit') Delete
-    

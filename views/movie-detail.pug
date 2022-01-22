@@ -1,6 +1,8 @@
 extends layout-nav
 
 include review.pug
+include rating-section.pug
+
 append head
     link(rel='stylesheet' href='/stylesheets/movie-detail.css')
 
@@ -27,14 +29,25 @@ block content
                             td= movie.main_actors
                         tr
                             td(class='leftHeader') My Rating
-                            td= ratings.rating
-        div
-            form(class='review' action=`/movies/${movieId}` method="post")
-                h4 Write a review:
-                input(type="hidden" name="_csrf" value=csrfToken)
-                input(type="text" name="review_title" placeholder="Review title...")
-                textarea(type="text" name="summary" placeholder='Type review here...')
-                button(type="submit" id='review_button') Post Review
-        div
+                            if user_id === rating.User.id
+                                td.rating-container= rating.rating
+                        tr
+                            +rating(section)
+
+    div
+        if errors
+            p#errors The following error(s) occurred:
+            ul
+                each error in errors
+                    li= error
+        form(class='review-form' action=`/movies/${movieId}` method="post")
+            h4 Write a review:
+            input(type="hidden" name="_csrf" value=csrfToken)
+            input(type="hidden" name="movieId" value=movieId)
+            input(type="text" name="review_title" placeholder="Review title...")
+            textarea(type="text" name="summary" placeholder='Type review here...')
+            button(type="submit" id='review_button') Post Review
+        div.all-reviews-container
             +review (reviews)
-    script(src="/javascripts/delete-review.js" type="module")
+    script(src="/javascripts/reviewsDOM.js" type="module")
+    script(src="/javascripts/ratingsDOM.js" type="module")

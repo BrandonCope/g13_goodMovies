@@ -13,7 +13,10 @@ const { sessionSecret } = require('./config');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const moviesRouter = require('./routes/movies');
-const reviewApiRouter = require('./routes/reviews');
+const reviewApiRouter = require('./routes/reviewAPI');
+const reviewsRouter = require('./routes/reviews')
+const ratingApiRouter = require('./routes/ratingAPI');
+const ratingRouter = require('./routes/ratings')
 
 const app = express();
 
@@ -44,7 +47,9 @@ app.use('/', indexRouter);
 app.use(usersRouter);
 app.use('/movies', moviesRouter);
 app.use('/reviewApi', reviewApiRouter);
-// app.use(reviewsRouter)
+app.use(reviewsRouter)
+app.use('/ratinApi', ratingApiRouter);
+app.use(ratingRouter)
 
 
 // catch 404 and forward to error handler

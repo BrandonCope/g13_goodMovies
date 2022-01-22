@@ -11,13 +11,13 @@ block content
   .buttonsContainer
     form(class="signup" action="/signup" method='get')
       input(type="hidden" name="_csrf" value=csrfToken)
-      button.signup(type="submit") Sign Up
+      button.home(type="submit") Sign Up
     form(class="login" action="/login" method='get')
       input(type="hidden" name="_csrf" value=csrfToken)
-      button.signup(type="submit") Log In
+      button.home(type="submit") Log In
     form(class="movies" action="/movies" method='get')
       input(type="hidden" name="_csrf" value=csrfToken)
-      button(type="submit" id="demo_button") See Movies
+      button.home(type="submit" id="demo_button") See Movies
     form(class="demo" action="/" method='post')
-        input(type="hidden" name="_csrf" value=csrfToken)
-        button(type="submit" id="demo_button") Demo User
+      input(type="hidden" name="_csrf" value=csrfToken)
+      button.home(type="submit" id="demo_button") Demo User

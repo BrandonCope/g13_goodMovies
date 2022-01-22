@@ -1,0 +1,20 @@
+extends layout-nav
+
+include review.pug
+append head
+    link(rel='stylesheet' href='/stylesheets/movie-detail.css')
+
+block content
+  div
+    if errors
+      p#errors The following error(s) occurred:
+        ul#errors
+          each error in errors
+            li= error
+  div
+    h4 Edit your review:
+    form(method="post" action=`/reviews/${review.id}/edit`)
+      input(type="hidden" name="_csrf" value=csrfToken)
+      input(type="text" name="review_title" value=review.review_title)
+      textarea(type="text" name="summary" placeholder='Type review here...') #{review.summary}
+      button(type="submit" id='review_button') Edit Review
