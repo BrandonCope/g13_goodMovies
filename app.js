@@ -48,7 +48,7 @@ app.use(usersRouter);
 app.use('/movies', moviesRouter);
 app.use('/reviewApi', reviewApiRouter);
 app.use(reviewsRouter)
-app.use('/ratinApi', ratingApiRouter);
+app.use('/ratingApi', ratingApiRouter);
 app.use(ratingRouter)
 
 

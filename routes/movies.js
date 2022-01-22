@@ -23,7 +23,7 @@ router.get('/:id(\\d+)',
   asyncHandler(async (req, res) => {
     const movieId = parseInt(req.params.id, 10);
     const movie = await Movie.findByPk(movieId)
-    const user_id = req.session.auth.userId
+    const userId = req.session.auth.userId
 
     const reviews = await Review.findAll({
       where: {
@@ -34,13 +34,38 @@ router.get('/:id(\\d+)',
 
     const user = reviews.User;
 
-    const rating = await Rating.findOne({
+    const ratings = await Rating.findAll({
       where:
         { movie_id: movieId },
       include: User
     })
 
-    res.render('movie-detail', { title: 'Movie Detail', movie, reviews, rating, csrfToken: req.csrfToken(), movieId, user_id })
+
+    const rating = await Rating.findOne({
+      where:
+      {
+        movie_id: movieId,
+        user_id: userId
+      }
+    })
+
+    let ratingId;
+    if (!rating) {
+      ratingId = 0
+    } else {
+      ratingId = rating.id
+    }
+
+    let sumRating = 0;
+    let count = 0;
+    ratings.forEach((el) => {
+      let rate = el.rating
+      sumRating += rate;
+      count++;
+      avgRating = Math.floor(sumRating / count)
+    })
+
+    res.render('movie-detail', { title: 'Movie Detail', movie, reviews, avgRating, rating, ratingId, csrfToken: req.csrfToken(), movieId, userId })
   })
 )
 

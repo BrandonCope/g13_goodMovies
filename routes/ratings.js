@@ -7,6 +7,14 @@ const { requireAuth } = require('../auth');
 
 const router = express.Router();
 
+router.get('/ratings/new',
+  csrfProtection,
+  requireAuth,
+  asyncHandler(async (req, res) => {
+
+  })
+);
+
 router.get(`/ratings/:ratingId/edit`,
   csrfProtection,
   requireAuth,
@@ -25,9 +33,9 @@ router.post(`/ratings/:ratingId/edit`,
   asyncHandler(async (req, res) => {
     const ratingId = parseInt(req.params.ratingId, 10);
 
-    const rating = await Review.findByPk(ratingId);
+    const rating = await Rating.findByPk(ratingId);
 
-    newRating = req.body.rating
+    rating.rating = req.body.rating
 
     await rating.save();
 

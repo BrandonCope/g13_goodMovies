@@ -1,0 +1,19 @@
+extends layout-nav
+
+append head
+    link(rel='stylesheet' href='/stylesheets/movie-detail.css')
+
+block content
+  div
+    if errors
+      p#errors The following error(s) occurred:
+        ul#errors
+          each error in errors
+            li= error
+  form(class='rating-form' action=`/movies/${movieId}` method="post")
+        h4 Add your rating (1-5):
+        input(type="hidden" name="_csrf" value=csrfToken)
+        input(type="hidden" name="userId" value=userId)
+        input(type="hidden" name="movieId" value=movieId)
+        a()
+        button(type="submit" id='rating_button') Rate Movie
