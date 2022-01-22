@@ -7,7 +7,6 @@ const { requireAuth } = require('../auth');
 
 const router = express.Router();
 
-console.log("@@@@@@@@@@@@@@@@@@@@")
 router.post('/',
   csrfProtection,
   requireAuth,

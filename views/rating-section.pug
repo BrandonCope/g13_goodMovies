@@ -1,18 +1,19 @@
 mixin rating(section)
   td.enter-rating
-    if user_id !== rating.User.id
-      td Enter your rating (1-5):
+    #removableRatingForm
+      form(class='rating-form' action=`/movies/${movieId}` method="post")
+        h4 Enter your rating (1-5):
         input(type="hidden" name="_csrf" value=csrfToken)
+        input(type="hidden" name="userId" value=userId)
         input(type="hidden" name="movieId" value=movieId)
         input(type="text" name="rating")
-        button(type="submit" id='rating-button') Submit
+        button(type="submit" id='rating_button') Rate Movie
 
-    else
-      div
-        if user_id === rating.User.id
-          a(href=`/ratings/${rating.id}/edit`)
-              button(class='btn-edit' id=`edit-${rating.id}` type='submit') Edit Rating
-
+    div
+      a(href=`/ratings/${ratingId}/edit`)
+          button(class='btn-edit' id=`edit-${ratingId}` type='submit') Edit Rating
+      #ratingDeleteContainer
+        #ratingDeleteForm
           form(action=`/movies/${movieId}` method='post')
             input(type='hidden' name='_csrf' value=csrfToken)
-            button(class='rate-btn-delete' id=`${rating.id}` type='submit') Delete Rating
+            button(class='rate-btn-delete' id=`ratingDelete-${ratingId}` type='submit') Delete Rating
