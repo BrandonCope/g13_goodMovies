@@ -25,6 +25,7 @@ router.get('/:id(\\d+)',
     const movie = await Movie.findByPk(movieId)
     const userId = req.session.auth.userId
 
+
     const reviews = await Review.findAll({
       where: {
         movie_id: movieId
@@ -48,7 +49,12 @@ router.get('/:id(\\d+)',
         user_id: userId
       }
     })
-    console.log("!!!!!!!!!!!!!!", rating)
+
+    // const ratingUserId = rating.user_id
+    // console.log(userId)
+    // console.log(ratingUserId)
+
+    // console.log("!!!!!!!!!!!!!!", rating)
     let ratingId;
     if (!rating) {
       ratingId = 0

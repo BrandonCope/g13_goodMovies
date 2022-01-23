@@ -5,11 +5,10 @@ mixin review (reviews)
                 div= review.User.firstName
                 div(class=`review-title`)= review.review_title
                 div(class=`review-summary`)= review.summary
-                if user_id === review.User.id
                 div(class="edit_delete_buttons")
-                    a(href=`/reviews/${review.id}/edit`)
-                        button(class='btn-edit' id=`edit-${review.id}` type='submit') Edit
-
-                    form(action=`/movies/${movieId}` method='post')
-                        input(type='hidden' name='_csrf' value=csrfToken)
-                        button(class='btn-delete' id=`${review.id}` type='submit') Delete
+                    if userId === review.User.id
+                        a(href=`/reviews/${review.id}/edit`)
+                            button(class='btn-edit' id=`edit-${review.id}` type='submit') Edit
+                        form(action=`/movies/${movieId}` method='post')
+                            input(type='hidden' name='_csrf' value=csrfToken)
+                            button(class='btn-delete' id=`${review.id}` type='submit') Delete
