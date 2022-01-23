@@ -32,7 +32,8 @@ block content
                             td= avgRating
                         tr.myRating
                             td(class='leftHeader') My Rating
-                            +rating(section)
+                            td.ratingDom
+                                +rating(section)
 
     div
         if errors

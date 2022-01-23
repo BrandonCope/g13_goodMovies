@@ -1,21 +1,19 @@
 mixin rating(section)
   if !rating
-    td.enter-rating
-      #removableRatingForm
-        form(class='rating-form' action=`/movies/${movieId}` method="post")
-          h4 Enter your rating (1-5):
-          input(type="hidden" name="_csrf" value=csrfToken)
-          input(type="hidden" name="user_id" value=user_id)
-          input(type="hidden" name="movieId" value=movieId)
-          input(type="text" name="rating")
-          button(type="submit" id='rating_button') Rate Movie
+    div#removableRatingForm
+      form(class='rating-form' action=`/movies/${movieId}` method="post")
+        h4 Enter your rating (1-5):
+        input(type="hidden" name="_csrf" value=csrfToken)
+        input(type="hidden" name="user_id" value=user_id)
+        input(type="hidden" name="movieId" value=movieId)
+        input(type="text" name="rating")
+        button(type="submit" id='rating_button') Rate Movie
   if rating
-    td
-      .edit_delete_buttons
-        a(href=`/ratings/${ratingId}/edit`)
-            button(class='btn-edit' id=`edit-${ratingId}` type='submit') Edit Rating
-        #ratingDeleteContainer
-          #ratingDeleteForm
-            form(action=`/movies/${movieId}` method='post')
-              input(type='hidden' name='_csrf' value=csrfToken)
-              button(class='rate-btn-delete' id=`ratingDelete-${ratingId}` type='submit') Delete Rating
+    div.edit_delete_buttons
+      a(href=`/ratings/${ratingId}/edit`)
+          button(class='btn-edit' id=`edit-${ratingId}` type='submit') Edit Rating
+      #ratingDeleteContainer
+        #ratingDeleteForm
+          form(action=`/movies/${movieId}` method='post')
+            input(type='hidden' name='_csrf' value=csrfToken)
+            button(class='rate-btn-delete' id=`ratingDelete-${ratingId}` type='submit') Delete Rating

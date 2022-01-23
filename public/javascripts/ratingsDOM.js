@@ -1,18 +1,3 @@
-const ratingDeleteDOM = async (e) => {
-  e.preventDefault();
-  const ratingId = e.target.id
-
-  const res = await fetch(`/ratingApi/${ratingId}`, {
-    method: "DELETE"
-  })
-  const data = await res.json()
-
-  if (data.message === "Success") {
-    const container = document.querySelector(`.rating-container`)
-    container.remove()
-  }
-}
-
 let ratingDelButton = document.querySelectorAll(".rate-btn-delete")
 ratingDelButton.forEach((button) => {
   button.addEventListener("click", async (e) => {
@@ -29,12 +14,48 @@ ratingDelButton.forEach((button) => {
     console.log(data)
 
     if (data.message === "Success") {
-      const html = `<div> Your rating has been removed.</div>`
-      const delContainer = document.querySelector("#ratingDeleteContainer")
-      const delForm = document.getElementById("ratingDeleteForm")
+      // const delContainer = document.querySelector("#ratingDeleteContainer")
+      const delForm = document.querySelector(".edit_delete_buttons");
 
       delForm.remove()
-      delContainer.appendChild(html)
+
+      console.log(data)
+      const containerAdd = document.querySelector('.ratingDom');
+      const newRating = document.createElement('div');
+
+      newRating.setAttribute("id", `removableRatingForm`)
+      newRating.innerHTML =
+        // `<div> test </div>` +
+        // `<form class='rating-form' action="/movies/${data.rating.movieId}" method="post">` +
+        `<form action="/movies/${data.movieId}" method='get'>` +
+        // `<h4> Enter your rating (1-5): </h4>` +
+        `<input type='hidden' name='_csrf' value=csrfToken></input>` +
+        // `<input type='hidden' name='user_id' value=user_id></input>` +
+        // `<input type="text" name="rating"></input>` +
+        // `<input type="hidden" name="movieId" value=movieId></input>` +
+        `<button type="submit" id='rating_button'> Add New Rating </button>` +
+        `</form>`
+
+        // `<form class="rating-form" action="/movies/${data.movieId}" method='post'>` +
+        // `<h4> Enter your rating (1-5): </h4>` +
+        // `<input type='hidden' name='_csrf' value=csrfToken></input>` +
+        // `<input type='hidden' name='user_id' value=user_id></input>` +
+        // `<input type="text" name="rating"></input>` +
+        // `<input type="hidden" name="movieId" value=movieId></input>` +
+        // `<button type="submit" id='rating_button'> Rate Movie </button>` +
+        // `</form>`
+
+        // `<form class="newRating" action="/movies/${data.movieId}" method='get'>` +
+        // // `<input type="hidden" name="_csrf" value=csrfToken></input>` +
+        // // `<button type="submit"> Add New Rating</button>` +
+        // // `</form>`
+
+      containerAdd.appendChild(newRating)
+
+
+      rateForm.addEventListener("submit", ratingAddDOM)
+
+
     }
   })
 })
@@ -69,5 +90,29 @@ ratingForm.addEventListener("submit", async (e) => {
   if (data.message === "Success") {
     const container = document.getElementById("removableRatingForm")
     container.remove();
+
+    const containerAdd = document.querySelector('.ratingDom');
+    const editRating = document.createElement('div');
+
+    editRating.setAttribute("class", `edit_delete_buttons`)
+    editRating.innerHTML =
+      // `<div> test </div>` +
+      // `<form class='rating-form' action="/movies/${data.rating.movieId}" method="post">` +
+      `<form action="/movies/${data.movieId}" method='get'>` +
+      // `<h4> Enter your rating (1-5): </h4>` +
+      `<input type='hidden' name='_csrf' value=csrfToken></input>` +
+      // `<input type='hidden' name='user_id' value=user_id></input>` +
+      // `<input type="text" name="rating"></input>` +
+      // `<input type="hidden" name="movieId" value=movieId></input>` +
+      `<button type="submit" id='rating_button'> Change Rating </button>` +
+      `</form>`
+
+      containerAdd.appendChild(editRating)
+
+
+      // rateForm.addEventListener("submit", ratingAddDOM)
+
   }
+
+
 })

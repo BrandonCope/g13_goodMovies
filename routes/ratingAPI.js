@@ -13,6 +13,7 @@ router.post('/',
   asyncHandler(async (req, res) => {
 
     const user_id = req.session.auth.userId;
+    // const movieId = rating.movie_id
 
     const {
       movieId,
@@ -27,7 +28,7 @@ router.post('/',
       rating
     })
 
-    res.json({ message: "Success", newRating, user, user_id, csrfToken: req.csrfToken() })
+    res.json({ message: "Success", newRating, user, movieId, user_id, csrfToken: req.csrfToken() })
   })
 );
 
@@ -36,8 +37,10 @@ router.delete('/:ratingId(\\d+)',
   asyncHandler(async (req, res) => {
     const ratingId = parseInt(req.params.ratingId, 10);
     const rating = await Rating.findByPk(ratingId)
+    const movieId = rating.movie_id
     await rating.destroy()
-    res.json({ message: "Success" })
+    res.json({ message: "Success", movieId })
+    // res.redirect(`/movies/${movieId}`)
   })
 )
 
