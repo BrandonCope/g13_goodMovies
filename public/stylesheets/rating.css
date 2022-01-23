@@ -4,15 +4,38 @@
 }
 
 .edit_delete_rating_buttons {
-  display: flex;
-  
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start
 }
+
+.myRating {
+    display: flex;
+    flex-direction: row;
+}
+
+.ratingDom{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding-right: 130px;
+}
+
+.ratingDeleteBtn {
+    margin-top: 15px;
+}
+
+#ratingDeleteContainer {
+    display: flex;
+    align-items:flex-start
+}
+
 div.input_rating {
     display: inline-block;
     vertical-align: middle;
     line-height: normal;
     flex-direction: row;
-    
+
 }
 
 .btn-edit {
@@ -28,7 +51,7 @@ div.input_rating {
 /* div#removableRatingForm {
     display: inline-block;
     vertical-align: middle;
-    line-height: normal; 
+    line-height: normal;
     flex-direction: row;
 } */
 

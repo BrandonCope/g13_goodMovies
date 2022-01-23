@@ -37,7 +37,7 @@ router.delete('/:ratingId(\\d+)',
   asyncHandler(async (req, res) => {
     const ratingId = parseInt(req.params.ratingId, 10);
     const rating = await Rating.findByPk(ratingId)
-    const movieId = rating.movie_id
+    const movieId = rating.movie_id;
     await rating.destroy()
     res.json({ message: "Success", movieId })
     // res.redirect(`/movies/${movieId}`)
