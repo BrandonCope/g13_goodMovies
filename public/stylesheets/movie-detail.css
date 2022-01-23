@@ -8,6 +8,8 @@
 .movie-title {
   font-weight: bold;
   font-size: 50px;
+  color: rgb(68, 33, 17);
+  font-family: 'Mukta', sans-serif;
 }
 
 .sub-detail-container {
@@ -15,6 +17,8 @@
   flex-direction:row;
   margin: 0 10px;
   font-size: 25px;
+  color: rgb(68, 33, 17);
+  font-family: 'Mukta', sans-serif;
 }
 
 .sub-detail-container > p {
@@ -33,7 +37,8 @@
 }
 
 .movie-cover {
-  width: 250px;
+  width: 400px;
+  height: 700px;
 }
 
 .details-table {
@@ -44,16 +49,19 @@
 
 .leftHeader {
   font-weight: bold;
-  padding: 0 50px;
+  padding: 0 70px;
   display: flex;
   row-gap: 20px;
   align-content: flex-start;
   margin: 10px 30px;
+  color: rgb(68, 33, 17);
+  font-family: 'Mukta', sans-serif;
 }
 
 body{
   font-family: 'Mukta', sans-serif;
   background-color: rgb(244, 239, 235);
+  color: rgb(68, 33, 17);
 }
 
 button {
@@ -73,68 +81,22 @@ button {
 button:hover {
   background-color: rgb(244, 239, 235);
 }
-.review-form {
-  padding: 20px;
-  margin: 20px;
-  background-color: rgb(223, 200, 176);
-  box-sizing: border-box;
+
+.logoutButton {
+  background-color: rgb(244, 239, 235);
 }
 
-.title_summary_button {
-  min-height: 10em;
-    display: table-cell;
-    vertical-align: middle
+.logoutButton:hover {
+  background:rgb(223, 200, 176);  
 }
-h4 {
-    font-size: 20px;
-}
-input {
-    padding: 5px;
-    margin: 10px;
-    text-align:start;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    display: inline-block;
-    vertical-align: middle;
-    line-height: normal;
-  }
-textarea {
-    padding: 15px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    text-align:start;
-    margin: 10px;
-    display: inline-block;
-    vertical-align: middle;
-    line-height: normal;
-  }
-.review-container-12 {
-    position: relative;
-}
-#review_button {
-    margin: 10px;
-    background-color: rgb(244, 239, 235);
-    display: inline-block;
-    vertical-align: middle;
-    line-height: normal;
-}
-#review_button:hover {
-    background-color: rgb(223, 200, 176);
-}
-.edit_delete_buttons {
+
+
+/* .rating-edit-delete-button {
   display: flex;
-  flex-direction: row;
-}
-.btn-edit {
-    justify-content: center;
-    margin:10px;
-}
-.btn-delete {
-    justify-content: center;
-    margin:10px;
-}
+  justify-content: center;
+  align-items: center;
+} */
+
 div {
     margin: 15px;
-}
-
-.rating {
-    background-color: rgb(223, 200, 176);
 }

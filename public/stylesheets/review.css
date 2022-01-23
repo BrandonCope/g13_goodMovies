@@ -1,0 +1,75 @@
+
+.edit_delete_buttons {
+    display: flex;
+}
+
+.btn-edit {
+    justify-content: center;
+    margin:10px;
+}
+
+.btn-delete {
+    justify-content: center;
+    margin:10px;
+}
+
+.review-form {
+    padding: 20px;
+    margin: 20px;
+    background-color: rgb(223, 200, 176);
+    box-sizing: border-box;
+}
+
+.title_summary_button {
+    min-height: 10em;
+    display: table-cell;
+    vertical-align: middle 
+}
+
+h4 {
+    font-size: 20px;
+}
+
+input {
+    padding: 5px;
+    margin: 10px;
+    text-align:start;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    /* display: inline-block;
+    vertical-align: middle;
+    line-height: normal; */
+    width: 100%;
+    padding: 12px;
+    border: 1px solid;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical;
+}
+
+textarea {
+    padding: 15px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align:start;
+    margin: 10px;  width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical;
+}
+
+.review-container-12 {
+    position: relative;
+}
+
+#review_button {
+    margin: 10px;
+    background-color: rgb(244, 239, 235);
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;  
+}
+
+#review_button:hover {
+    background-color: rgb(223, 200, 176);
+}

@@ -18,9 +18,9 @@
 }
 
 body {
+  color: rgb(68, 33, 17);
   font-family: 'Mukta', sans-serif;
   background-color: rgb(244, 239, 235);
-  color: rgb(68, 33, 17);
 }
 
 .login {

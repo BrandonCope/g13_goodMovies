@@ -11,10 +11,12 @@ block content
         ul#errors
           each error in errors
             li= error
-  div
+  div(class="review_input_textarea")
     h4 Edit your review:
     form(method="post" action=`/reviews/${review.id}/edit`)
       input(type="hidden" name="_csrf" value=csrfToken)
-      input(type="text" name="review_title" value=review.review_title)
-      textarea(type="text" name="summary" placeholder='Type review here...') #{review.summary}
-      button(type="submit" id='review_button') Edit Review
+      div 
+        .review_input_textarea
+          input(type="text" name="review_title" value=review.review_title)
+          textarea(type="text" placeholder='Type review here...') #{review.summary}
+          button(type="submit" id='review_button') Edit Review
