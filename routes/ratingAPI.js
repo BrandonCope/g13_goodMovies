@@ -10,7 +10,7 @@ const router = express.Router();
 router.post('/',
   csrfProtection,
   requireAuth,
-  asyncHandler(async (req, res) => {  
+  asyncHandler(async (req, res) => {
 
     const user_id = req.session.auth.userId;
 
@@ -27,7 +27,7 @@ router.post('/',
       rating
     })
 
-    res.json({ message: "Success", newRating, user_id, csrfToken: req.csrfToken() })
+    res.json({ message: "Success", newRating, user, user_id, csrfToken: req.csrfToken() })
   })
 );
 

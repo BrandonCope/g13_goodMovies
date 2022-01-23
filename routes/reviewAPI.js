@@ -24,7 +24,7 @@ router.post('/',
   reviewValidators,
   asyncHandler(async (req, res) => {
 
-    const user_id = req.session.auth.userId;
+    const userId = req.session.auth.userId;
 
     const {
       movieId,
@@ -32,10 +32,10 @@ router.post('/',
       summary
     } = req.body
 
-    const user = await User.findByPk(user_id)
+    const user = await User.findByPk(userId)
 
     const review = await Review.create({
-      user_id,
+      user_id: userId,
       movie_id: movieId,
       review_title,
       summary,
@@ -55,6 +55,7 @@ router.post('/',
       res.render('movie-detail', {
         review,
         errors,
+        userId,
         csrfToken: req.csrfToken()
       })
     }
