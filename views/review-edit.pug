@@ -15,8 +15,8 @@ block content
     h4 Edit your review:
     form(method="post" action=`/reviews/${review.id}/edit`)
       input(type="hidden" name="_csrf" value=csrfToken)
-      div 
+      div
         .review_input_textarea
           input(type="text" name="review_title" value=review.review_title)
-          textarea(type="text" placeholder='Type review here...') #{review.summary}
+          textarea(type="text" name="summary" placeholder='Type review here...') #{review.summary}
           button(type="submit" id='review_button') Edit Review

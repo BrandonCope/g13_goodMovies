@@ -6,26 +6,56 @@ append head
 block content
   .movie_title
     h2 Discover new movies:
-  div
+  div.movies
     .movie_container
-      table.movie_list
-        thead
-          tr
-            th
-            th Title
-            th Director
-            th Genre
-            th Actors
-            th Release Year
-        tbody
-          each movie in movies
-            tr
-              td.movie_covers
-                a(href=`/movies/${movie.id}`)
-                  img(src=`${movie.cover}`)
-              td
-                a(href=`/movies/${movie.id}`)= movie.movie_title
-              td= movie.director
-              td= movie.genre
-              td= movie.main_actors
+      #genre_container
+        .movie_genre Action
+        .movie_covers
+          each movie in actionMovies
+            a(href=`/movies/${movie.id}`)
+              img(src=`${movie.cover}`)
+      #genre_container
+        .movie_genre Animation
+        .movie_covers
+          each movie in aniMovies
+            a(href=`/movies/${movie.id}`)
+              img(src=`${movie.cover}`)
+      #genre_container
+        .movie_genre Sci-Fi
+        .movie_covers
+          each movie in sciFiMovies
+            a(href=`/movies/${movie.id}`)
+              img(src=`${movie.cover}`)
+      #genre_container
+        .movie_genre Rom-Com
+        .movie_covers
+          each movie in romComMovies
+            a(href=`/movies/${movie.id}`)
+              img(src=`${movie.cover}`)
+      #genre_container
+        .movie_genre Top Movies
+        .movie_covers
+          each movie in topTenMovies
+            a(href=`/movies/${movie.id}`)
+              img(src=`${movie.cover}`)
+      //- table.movie_list
+        //- thead
+        //-   tr
+        //-     th
+            //- th Title
+            //- th Director
+            //- th Genre
+            //- th Actors
+            //- th Release Year
+        //- tbody
+        //-   each movie in movies
+            //- tr
+            //-   td.movie_covers
+            //-     a(href=`/movies/${movie.id}`)
+            //-       img(src=`${movie.cover}`)
+            //-   td
+            //-     a(href=`/movies/${movie.id}`)= movie.movie_title
+              //- td= movie.director
+              //- td= movie.genre
+              //- td= movie.main_actors
               td= movie.release_year

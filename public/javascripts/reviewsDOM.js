@@ -65,8 +65,8 @@ reviewForm.addEventListener("submit", async (e) => {
         const newReview = document.createElement('div');
 
         newReview.setAttribute("class", `review-container-${data.review.id}`)
-        newReview.innerHTML = "<div>" + data.firstName + "</div>" +
-            '<div>' + data.review.review_title + "</div>" +
+        newReview.innerHTML = "<div> <i> Posted by:  " + data.firstName + "</i> </div>" +
+            '<div> <b>' + data.review.review_title + "</b> </div>" +
             '<div class="review-summary">' + data.review.summary + "</div>" +
             `<a href="/reviews/${data.review.id}/edit">` +
             `<button class='btn-edit' id="edit-${data.review.id}" type='submit'> Edit </button>` +
@@ -77,6 +77,14 @@ reviewForm.addEventListener("submit", async (e) => {
             "</form>"
 
         container.insertBefore(newReview, container.firstChild)
+
+        // let stylesheet = document.styleSheets[0];
+        // stylesheet.backgroundColor = "aqua"
+
+        const reviewTitle = document.querySelector(".review_title")
+        const reviewSumm = document.querySelector(".review_summary")
+        reviewTitle.value = ""
+        reviewSumm.value = ""
 
         let newDelButton = document.getElementById(`${data.review.id}`);
         newDelButton.addEventListener("click", deleteDOM)

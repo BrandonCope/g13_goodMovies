@@ -5,8 +5,10 @@ mixin review (reviews)
     div(class="user-review")
         each review in reviews
             div(class=`review-container-${review.id}`)
-                div= review.User.firstName
-                div(class=`review-title`)= review.review_title
+                div
+                    i Posted by -- #{review.User.firstName}
+                div(class=`review-title`)
+                    b= review.review_title
                 div(class=`review-summary`)= review.summary
                 div(class="edit_delete_buttons")
                     if userId === review.User.id

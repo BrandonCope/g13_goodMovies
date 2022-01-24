@@ -4,25 +4,32 @@
 }
 
 .edit_delete_rating_buttons {
+    margin-left: 30px;
     display: flex;
     flex-direction: row;
-    align-items: flex-start
 }
 
 .myRating {
     display: flex;
-    flex-direction: row;
+    /* flex-direction: row; */
 }
 
 .ratingDom{
-    display: flex;
-    flex-direction: row;
+    display: inline-block;
     align-items: flex-start;
-    padding-right: 130px;
 }
 
-.ratingDeleteBtn {
-    margin-top: 15px;
+.your_rating {
+    margin-left: 10px;
+}
+
+#rating_input {
+    width: 40px;
+}
+
+#user_rating {
+    font-weight: bold;
+    margin: 10px 10px 5px 0px;
 }
 
 #ratingDeleteContainer {
@@ -35,7 +42,6 @@ div.input_rating {
     vertical-align: middle;
     line-height: normal;
     flex-direction: row;
-
 }
 
 .btn-edit {
@@ -48,13 +54,37 @@ div.input_rating {
     margin:10px;
 }
 
-/* div#removableRatingForm {
-    display: inline-block;
-    vertical-align: middle;
-    line-height: normal;
-    flex-direction: row;
-} */
 
-/* button#rating_button {
-    vertical-align: middle;
-} */
+.rating-form-edit {
+    margin: 20px 40px;
+}
+
+h2 {
+    font-size: 25px;
+}
+
+#rating_input {
+    text-align:start;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border: 1px solid;
+    padding: 15px;
+    height: 28px;
+    border-radius: 4px;
+}
+
+#rating_button {
+    background:rgb(223, 200, 176);;
+    width:125px;
+    padding-top:5px;
+    padding-bottom:5px;
+    color:rgb(68, 33, 17);
+    border-radius:4px;
+    border-color: rgb(68, 33, 17);
+    border: 1px solid;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+  button:hover {
+    background-color: rgb(244, 239, 235);
+  }
