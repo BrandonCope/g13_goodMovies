@@ -23,7 +23,7 @@
 .title_summary_button {
     min-height: 10em;
     display: table-cell;
-    vertical-align: middle 
+    vertical-align: middle
 }
 
 h4 {
@@ -35,9 +35,6 @@ input {
     margin: 10px;
     text-align:start;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    /* display: inline-block;
-    vertical-align: middle;
-    line-height: normal; */
     width: 100%;
     padding: 12px;
     border: 1px solid;
@@ -50,12 +47,23 @@ textarea {
     padding: 15px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-align:start;
-    margin: 10px;  width: 100%;
+    margin: 10px;
+    width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
     resize: vertical;
+}
+
+h4 {
+    margin-left: 25px;
+}
+.review_input_textarea {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 5px;
+    width: 60%;
+    padding: 12px;
 }
 
 .review-container-12 {
@@ -67,7 +75,7 @@ textarea {
     background-color: rgb(244, 239, 235);
     display: inline-block;
     vertical-align: middle;
-    line-height: normal;  
+    line-height: normal;
 }
 
 #review_button:hover {

@@ -13,7 +13,7 @@ block content
         div(class="sub-detail-container")
                 p= movie.release_year
                 p= movie.genre
-        div(class="movie-details") . 
+        div(class="movie-details") .
                 img(class="movie-cover" src=movie.cover alt="Cover image of the User's movie of interest.")
                 table(class="details-table")
                     thead
@@ -35,7 +35,7 @@ block content
                             td.ratingDom
                                 +rating(section)
 
-    div
+    #reviews_container
         if errors
             p#errors The following error(s) occurred:
             ul
@@ -46,8 +46,8 @@ block content
             div(class="title_summary_button")
                 input(type="hidden" name="_csrf" value=csrfToken)
                 input(type="hidden" name="movieId" value=movieId)
-                input(type="text" name="review_title" placeholder="Review title...")
-                textarea(type="text" name="summary" placeholder='Type review here...')
+                input(type="text" class="review_title" name="review_title" placeholder="Review title...")
+                textarea(type="text" class="review_summary" name="summary" placeholder="Type review here...")
                 button(type="submit" id='review_button') Post Review
         div.all-reviews-container
             +review (reviews)
