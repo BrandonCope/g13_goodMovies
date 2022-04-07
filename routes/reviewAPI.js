@@ -34,16 +34,16 @@ router.post('/',
 
     const user = await User.findByPk(userId)
 
-    const review = await Review.create({
-      user_id: userId,
-      movie_id: movieId,
-      review_title,
-      summary,
-    })
 
     const validatorErrors = validationResult(req);
 
     if (validatorErrors.isEmpty()) {
+      const review = await Review.create({
+        user_id: userId,
+        movie_id: movieId,
+        review_title,
+        summary,
+      })
       res.json({
         message: "Success",
         review,

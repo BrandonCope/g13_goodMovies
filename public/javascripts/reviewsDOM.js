@@ -65,15 +65,15 @@ reviewForm.addEventListener("submit", async (e) => {
         const newReview = document.createElement('div');
 
         newReview.setAttribute("class", `review-container-${data.review.id}`)
-        newReview.innerHTML = "<div> <i> Posted by:  " + data.firstName + "</i> </div>" +
+        newReview.innerHTML = "<div> <i> Posted by --  " + data.firstName + "</i> </div>" +
             '<div> <b>' + data.review.review_title + "</b> </div>" +
             '<div class="review-summary">' + data.review.summary + "</div>" +
-            `<a href="/reviews/${data.review.id}/edit">` +
+            `<div style="display:flex" ><a href="/reviews/${data.review.id}/edit">` +
             `<button class='btn-edit' id="edit-${data.review.id}" type='submit'> Edit </button>` +
             "</a>" +
             `<form action="/movies/${data.review.movie_id}" method='post'>` +
             `<input type='hidden' name='_csrf' value=csrfToken></input>` +
-            `<button class='btn-delete' id="${data.review.id}" type='submit'> Delete </button>` +
+            `<button class='btn-delete' id="${data.review.id}" type='submit'> Delete </button></div>` +
             "</form>"
 
         container.insertBefore(newReview, container.firstChild)
