@@ -41,15 +41,17 @@ block content
                                 +shelves(shelf)
 
     #reviews_container
-        div
-            if errors
-                p#errors The following error(s) occurred:
-                    ul#errors
-                        each error in errors
-                            li= error
         form(class='review-form' action=`/movies/${movieId}` method="post")
             h4 Write a review:
+            div errors should go in here
+                if thisThing
+                    div here I am
+                    //- p#errors The following error(s) occurred:
+                    //-     ul#errors
+                    //-         each error in thisThing
+                    //-             li= error
             div(class="title_summary_button")
+            form(method="post" action=`/reviewAPI`)
                 input(type="hidden" name="_csrf" value=csrfToken)
                 input(type="hidden" name="movieId" value=movieId)
                 input(type="text" class="review_title" name="review_title" placeholder="Review title...")

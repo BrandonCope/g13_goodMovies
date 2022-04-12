@@ -20,3 +20,5 @@ block content
           input(type="text" name="review_title" value=review.review_title)
           textarea(type="text" name="summary" placeholder='Type review here...') #{review.summary}
           button(type="submit" id='review_button') Edit Review
+          a(href="javascript:history.go(-1)")
+            button.review_cancel_button Cancel

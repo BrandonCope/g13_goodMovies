@@ -30,12 +30,11 @@ router.post('/',
       review_title,
       summary
     } = req.body
-    
-    const user = await User.findByPk(userId)
-    
-    
+
+    const user = await User.findByPk(userId);
+
     const validatorErrors = validationResult(req);
-    
+
     if (validatorErrors.isEmpty()) {
       const review = await Review.create({
         user_id: userId,
@@ -49,13 +48,15 @@ router.post('/',
         firstName: user.firstName,
         csrfToken: req.csrfToken()
       })
+
     } else {
-      const errors = validatorErrors.array().map((error) => error.msg);
-      // console.log("errors!!!!!!", errors)
+      const thisThing = validatorErrors.array().map((error) => error.msg);
+
+      console.log("HERRRRRRRRRRRRRRRRREEEEEE", thisThing)
+
       res.render('movie-detail', {
-        review,
-        errors,
-        userId,
+        title: "Movie Details",
+        thisThing,
         csrfToken: req.csrfToken()
       })
     }

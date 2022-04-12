@@ -2,10 +2,18 @@ const express = require('express');
 
 const { check, validationResult } = require('express-validator')
 const { asyncHandler, csrfProtection } = require('./utils');
-const { Shelf, Movie, Movie_Shelf } = require('../db/models');
+const { Shelf, Movie, Movie_Shelf, User } = require('../db/models');
 const { requireAuth } = require('../auth');
 
 const router = express.Router();
+
+const shelfValidators = [
+  check('shelf_title')
+    .exists({ checkFalsy: true })
+    .withMessage("Please provide value for shelf title.")
+    .isLength({ max: 50 })
+    .withMessage("Title may not be more that 50 characters long.")
+]
 
 router.get('/',
   csrfProtection,
@@ -45,8 +53,44 @@ router.get('/:shelfId',
 router.post('/new',
   csrfProtection,
   requireAuth,
+  shelfValidators,
   asyncHandler(async (req, res) => {
+    const user_id = req.session.auth.userId;
 
+    const {
+      shelf_title
+    } = req.body
+
+    const user = await User.findByPk(user_id);
+
+    const validatorErrors = validationResult(req);
+
+    if (validatorErrors.isEmpty()) {
+      await Shelf.create({
+        user_id,
+        shelf_title
+      })
+
+      const shelves = await Shelf.findAll({
+        where: { user_id },
+        order: [['shelf_title', 'ASC']]
+      });
+
+      res.render('shelves', {
+        title: "Shelves",
+        shelves,
+        csrfToken: req.csrfToken()
+      })
+
+    } else {
+      const errors = validatorErrors.array().map((error) => error.msg);
+
+      res.render('shelves', {
+        title: "Shelves",
+        errors,
+        csrfToken: req.csrfToken()
+      })
+    }
   })
 );
 

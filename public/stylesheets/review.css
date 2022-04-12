@@ -4,7 +4,7 @@
 
 .btn-edit {
     justify-content: center;
-    margin:10px;
+    margin: 10px;
     cursor: pointer;
 }
 
@@ -98,4 +98,18 @@ h4 {
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
+}
+
+.review_cancel_button {
+    margin: 10px 0px 10px 45px;
+    background-color: rgb(244, 239, 235);
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+    box-shadow: 0 0 5px 0 grey;
+}
+
+.review_cancel_button:hover {
+    background-color: rgb(223, 200, 176);
+    box-shadow: 0 0 10px 0 grey;
 }
