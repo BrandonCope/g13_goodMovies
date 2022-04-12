@@ -6,11 +6,13 @@
 .btn-edit {
     justify-content: center;
     margin:10px;
+    box-shadow: 0 0 5px 0 grey;
 }
 
 .btn-delete {
     justify-content: center;
     margin:10px;
+    box-shadow: 0 0 5px 0 grey;
 }
 
 .review-form {
@@ -18,6 +20,8 @@
     margin: 20px;
     background-color: rgb(223, 200, 176);
     box-sizing: border-box;
+    border-radius: 1rem;
+    box-shadow: 0 0 10px 0 grey;
 }
 
 .title_summary_button {
@@ -76,8 +80,21 @@ h4 {
     display: inline-block;
     vertical-align: middle;
     line-height: normal;
+    box-shadow: 0 0 5px 0 grey;
 }
 
 #review_button:hover {
     background-color: rgb(223, 200, 176);
+    box-shadow: 0 0 10px 0 grey;
+}
+
+#errors {
+    font-family: 'Mukta', sans-serif;
+    color: red;
+    font-size: 16px;
+    font-weight: 200;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
 }

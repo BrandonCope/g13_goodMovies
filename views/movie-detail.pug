@@ -36,11 +36,12 @@ block content
                                 +rating(section)
 
     #reviews_container
-        if errors
-            p#errors The following error(s) occurred:
-            ul
-                each error in errors
-                    li= error
+        div
+            if errors
+                p#errors The following error(s) occurred:
+                    ul#errors
+                        each error in errors
+                            li= error
         form(class='review-form' action=`/movies/${movieId}` method="post")
             h4 Write a review:
             div(class="title_summary_button")

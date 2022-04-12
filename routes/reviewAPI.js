@@ -25,18 +25,17 @@ router.post('/',
   asyncHandler(async (req, res) => {
 
     const userId = req.session.auth.userId;
-
     const {
       movieId,
       review_title,
       summary
     } = req.body
-
+    
     const user = await User.findByPk(userId)
-
-
+    
+    
     const validatorErrors = validationResult(req);
-
+    
     if (validatorErrors.isEmpty()) {
       const review = await Review.create({
         user_id: userId,
@@ -52,6 +51,7 @@ router.post('/',
       })
     } else {
       const errors = validatorErrors.array().map((error) => error.msg);
+      // console.log("errors!!!!!!", errors)
       res.render('movie-detail', {
         review,
         errors,

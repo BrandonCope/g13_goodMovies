@@ -4,6 +4,11 @@ append head
 mixin review (reviews)
     div(class="user-review")
         each review in reviews
+            //- if errors
+            //-     p#errors The following error(s) occurred:
+            //-         ul#errors
+            //-             each error in errors
+            //-                 li= error
             div(class=`review-container-${review.id}`)
                 div
                     i Posted by -- #{review.User.firstName}
