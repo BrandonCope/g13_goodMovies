@@ -8,8 +8,12 @@ block nav
   ul
     if locals.authenticated
       p #{user.firstName}, welcome to Good Movies!
-        form(action="/logout" method='post')
-          button.logoutButton(type="submit") Log Out
+      .nav-buttons
+        a(href="/shelves")
+          button.shelves-button(type="submit") My Shelves
+        .logout-form
+          form(action="/logout" method='post')
+            button.logoutButton(type="submit") Log Out
     else
       form(action="/signup" method='get')
           button.navButton(type="submit") Sign Up

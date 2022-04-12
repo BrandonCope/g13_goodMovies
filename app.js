@@ -17,6 +17,7 @@ const reviewApiRouter = require('./routes/reviewAPI');
 const reviewsRouter = require('./routes/reviews')
 const ratingApiRouter = require('./routes/ratingAPI');
 const ratingRouter = require('./routes/ratings')
+const shelvesRouter = require('./routes/shelves')
 
 const app = express();
 
@@ -49,7 +50,8 @@ app.use('/movies', moviesRouter);
 app.use('/reviewApi', reviewApiRouter);
 app.use(reviewsRouter)
 app.use('/ratingApi', ratingApiRouter);
-app.use(ratingRouter)
+app.use(ratingRouter);
+app.use('/shelves', shelvesRouter);
 
 
 // catch 404 and forward to error handler

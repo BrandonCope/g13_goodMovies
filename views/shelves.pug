@@ -1,0 +1,15 @@
+extends layout-nav
+
+append head
+  link(rel='stylesheet' href='/stylesheets/shelves-all.css')
+
+block content
+  .shelves_title
+    h2 Your Shelves:
+  .shelves
+    .shelf-tiles
+      each shelf in shelves
+        .shelf-item
+          a(href=`/shelves/${shelf.id}`)
+            img(src='http://www.chicagofilmarchives.org/wp-content/uploads/2013/12/PageCollection_horizontal1.jpg' class='shelf-img')
+            .shelf-title= shelf.shelf_title
