@@ -5,6 +5,7 @@
   flex-direction: column;
   justify-content: center;
 }
+
 .movie-title {
   font-weight: bold;
   font-size: 50px;
@@ -12,9 +13,10 @@
   font-family: 'Mukta', sans-serif;
   margin-left: 20px;
 }
+
 .sub-detail-container {
-  display:flex;
-  flex-direction:row;
+  display: flex;
+  flex-direction: row;
   margin: 0 10px;
   padding-left: 30px;
   font-size: 25px;
@@ -22,7 +24,7 @@
   font-family: 'Mukta', sans-serif;
 }
 
-.sub-detail-container > p {
+.sub-detail-container>p {
   margin: 5px 10px;
   border: solid;
   border-radius: 20px;
@@ -59,41 +61,42 @@
   font-family: 'Mukta', sans-serif;
 }
 
-body{
+button.logoutButton {
+  margin: 0px 0px
+}
+
+button.shelves-button {
+  margin: 0px 0px
+}
+
+body {
   font-family: 'Mukta', sans-serif;
   background-color: rgb(244, 239, 235);
   color: rgb(68, 33, 17);
 }
 
 button {
-  background:rgb(223, 200, 176);;
-  width:125px;
-  padding-top:5px;
-  padding-bottom:5px;
-  color:rgb(68, 33, 17);
-  border-radius:4px;
+  background: rgb(223, 200, 176);
+  width: 125px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: rgb(68, 33, 17);
+  border-radius: 4px;
   border-color: rgb(68, 33, 17);
   border: 1px solid;
   margin-top: 20px;
   margin-bottom: 20px;
-  /* float:right; */
   font-weight: 600;
 }
+
 button:hover {
   background-color: rgb(244, 239, 235);
 }
 
-.logoutButton {
-  background-color: rgb(244, 239, 235);
-}
-
-.logoutButton:hover {
-  background:rgb(223, 200, 176);
-}
-
 #reviews_container {
-    margin: 15px;
+  margin: 15px;
 }
+
 .all-reviews-container {
   margin: 20px;
 }

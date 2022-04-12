@@ -1,13 +1,16 @@
 extends layout-nav
 
 append head
-      script(src="https://kit.fontawesome.com/694a26d7c0.js" crossorigin="anonymous")
+    link(rel="stylesheet" href="/stylesheets/about.css")
+    script(src="https://kit.fontawesome.com/694a26d7c0.js" crossorigin="anonymous")
+
 
 
 block content
     div(class="about-page-body")
         div
-            h2(class="about-page-title") Checkout Our Dev Team
+            h2(class="about-page-title") Check Out Our Dev Team
+
             div(class="team-list")
                 div(class="team-member")
                     div(class="team-member-name") Mia Joubert
@@ -20,7 +23,7 @@ block content
                                 i(class="fa-brands fa-github about-link")   Github
                         a(href="https://www.linkedin.com/in/miajoubert/" target="_blank" rel="noopener noreferrer")
                             div(class="team-member-linkedin")
-                                i(class="fa-brands fa-linkedin about-link")   LinkdIn
+                                i(class="fa-brands fa-linkedin about-link")   LinkedIn
                 div(class="team-member")
                     div(class="team-member-name") Katerina Kreibich
                         a(href="http://www.katerina-kreibich.me/" target="_blank" rel="noopener noreferrer")
@@ -32,7 +35,7 @@ block content
                                 i(class="fa-brands fa-github about-link")   Github
                         a(href="https://www.linkedin.com/in/katerina-kreibich-7a79a251/" target="_blank" rel="noopener noreferrer")
                             div(class="team-member-linkedin")
-                                i(class="fa-brands fa-linkedin about-link")   LinkdIn
+                                i(class="fa-brands fa-linkedin about-link")   LinkedIn
                 div(class="team-member")
                     div(class="team-member-name") Brandon Copeland
                         a(href="https://brandoncope.github.io/" target="_blank" rel="noopener noreferrer")
@@ -44,4 +47,5 @@ block content
                                 i(class="fa-brands fa-github about-link")   Github
                         a(href="https://www.linkedin.com/in/brandoncopeland97/" target="_blank" rel="noopener noreferrer")
                             div(class="team-member-linkedin")
-                                i(class="fa-brands fa-linkedin about-link")   LinkdIn
+                                i(class="fa-brands fa-linkedin about-link")   LinkedIn
+
