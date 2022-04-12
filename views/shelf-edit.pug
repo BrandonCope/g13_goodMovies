@@ -6,3 +6,9 @@ append head
 block content
   .shelves_title
     h2 Edit Shelf Title
+    form(method="post" action=`/shelves/${shelf.id}/edit`)
+      input(type="hidden" name="_csrf" value=csrfToken)
+      div
+        .shelf_title_input
+          input(type="text" name="shelf_title" value=shelf.title)
+          button(type="submit" id='review_button') Update Title
