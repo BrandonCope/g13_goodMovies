@@ -1,16 +1,17 @@
-
 .edit_delete_buttons {
     display: flex;
 }
 
 .btn-edit {
     justify-content: center;
-    margin:10px;
+    margin: 10px;
+    cursor: pointer;
 }
 
 .btn-delete {
     justify-content: center;
-    margin:10px;
+    margin: 10px;
+    cursor: pointer;
 }
 
 .review-form {
@@ -33,7 +34,7 @@ h4 {
 input {
     padding: 5px;
     margin: 10px;
-    text-align:start;
+    text-align: start;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     width: 100%;
     padding: 12px;
@@ -46,7 +47,7 @@ input {
 textarea {
     padding: 15px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    text-align:start;
+    text-align: start;
     margin: 10px;
     width: 100%;
     padding: 12px;
@@ -59,6 +60,7 @@ textarea {
 h4 {
     margin-left: 25px;
 }
+
 .review_input_textarea {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     margin: 5px;
