@@ -52,6 +52,7 @@ div.input_rating {
 .rate-btn-delete {
     justify-content: center;
     margin:10px;
+    box-shadow: 0 0 5px 0 grey;
 }
 
 
@@ -84,7 +85,9 @@ h2 {
     margin-left: 10px;
     margin-bottom: 20px;
     font-weight: 600;
+    box-shadow: 0 0 5px 0 grey;
   }
   button:hover {
     background-color: rgb(244, 239, 235);
+    box-shadow: 0 0 5px 0 grey;
   }
