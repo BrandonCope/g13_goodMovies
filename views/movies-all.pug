@@ -35,7 +35,7 @@ block content
       #genre_container
         .movie_genre Top Movies
         .movie_covers
-          each movie in topTenMovies
+          each movie in topMovies
             a(href=`/movies/${movie.id}`)
               img(src=`${movie.cover}`)
       //- table.movie_list

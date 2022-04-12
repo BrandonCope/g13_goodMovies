@@ -34,13 +34,13 @@ router.get('/',
       },
       order: [['movie_title', 'ASC']]
     });
-    const topTenMovies = await Movie.findAll({
+    const topMovies = await Movie.findAll({
       where: {
-        genre: "Top-Ten"
+        genre: "Top Movies"
       },
       order: [['movie_title', 'ASC']]
     });
-    return res.render('movies-all', { title: 'All Movies', aniMovies, actionMovies, sciFiMovies, romComMovies, topTenMovies })
+    return res.render('movies-all', { title: 'All Movies', aniMovies, actionMovies, sciFiMovies, romComMovies, topMovies })
   }))
 
 
