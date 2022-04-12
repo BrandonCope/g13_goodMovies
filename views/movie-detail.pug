@@ -2,6 +2,7 @@ extends layout-nav
 
 include review.pug
 include rating-section.pug
+include shelves-section.pug
 
 append head
     link(rel='stylesheet' href='/stylesheets/movie-detail.css')
@@ -34,6 +35,10 @@ block content
                             td(class='leftHeader') My Rating
                             td.ratingDom
                                 +rating(section)
+                        tr
+                            td(class='leftHeader') Add to Shelf
+                            td
+                                +shelves(shelf)
 
     #reviews_container
         div

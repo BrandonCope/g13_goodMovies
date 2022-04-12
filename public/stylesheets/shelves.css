@@ -57,3 +57,7 @@
   width: 8rem;
   margin-right: 10px;
 }
+
+.custom-select-shelves {
+  width: auto;
+}
