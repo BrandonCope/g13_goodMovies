@@ -4,6 +4,12 @@ append head
 mixin rating(section)
   if !rating
     div#removableRatingForm
+      div
+        if errors
+          p#errors The following error(s) occurred:
+            ul#errors
+              each error in errors
+                li= error
       form(class='rating-form' action=`/movies/${movieId}` method="post")
         h4.your_rating Rate this movies (1-5):
         input(type="hidden" name="_csrf" value=csrfToken)
@@ -16,7 +22,8 @@ mixin rating(section)
           option(value="3") 3
           option(value="4") 4
           option(value="5") 5
-        button(type="submit" id='rating_button') Rate Movie
+        a(href=`/movies/${movieId}`)
+          button(type="submit" id='rating_button') Rate Movie
   if rating
     div.edit_delete_rating_buttons
       div#user_rating= rating.rating
