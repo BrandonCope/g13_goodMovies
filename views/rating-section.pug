@@ -16,7 +16,7 @@ mixin rating(section)
         input(type="hidden" name="user_id" value=user_id)
         input(type="hidden" name="movieId" value=movieId)
         //- input(type="text" id="rating_input" )
-        select(name="rating")
+        select(name="rating" class="custom-select" value=rating)
           option(value="1") 1
           option(value="2") 2
           option(value="3") 3

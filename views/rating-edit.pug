@@ -12,14 +12,16 @@ block content
             li= error
   .rating-form-edit
     h2 Edit your rating:
-    form(method="post" action=`/ratings/${rating.id}/edit`)
-      input(type="hidden" name="_csrf" value=csrfToken)
-      //- input(type="text" id="rating_input" name="rating" value=rating.rating)
-      select(name="rating" value=rating.rating)
-        option(value="1") 1
-        option(value="2") 2
-        option(value="3") 3
-        option(value="4") 4
-        option(value="5") 5
-      button(type="submit" id='rating_button') Edit Rating
-  
+    .edit-rating-container
+      form(method="post" action=`/ratings/${rating.id}/edit`)
+        input(type="hidden" name="_csrf" value=csrfToken)
+        select(name="rating" value=rating.rating)
+          option(value="1") 1
+          option(value="2") 2
+          option(value="3") 3
+          option(value="4") 4
+          option(value="5") 5
+        button(type="submit" id='rating_button') Edit Rating
+
+      a(href="javascript:history.go(-1)")
+        button.rating_cancel_button Cancel
