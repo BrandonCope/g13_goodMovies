@@ -11,9 +11,19 @@ block nav
       .nav-buttons
         a(href="/shelves")
           button.shelves-button(type="submit") My Shelves
+<<<<<<< Updated upstream
         .logout-form
           form(action="/logout" method='post')
             button.logoutButton(type="submit") Log Out
+=======
+        .other-buttons
+          .logout-form
+            form(action="/logout" method='post')
+              button.logoutButton(type="submit") Log Out
+          a(href="/about")
+            button.navButton(type="submit") About the Developers
+
+>>>>>>> Stashed changes
     else
       form(action="/signup" method='get')
           button.navButton(type="submit") Sign Up
