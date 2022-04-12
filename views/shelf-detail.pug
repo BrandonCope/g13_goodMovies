@@ -1,0 +1,14 @@
+extends layout-nav
+
+append head
+  link(rel='stylesheet' href='/stylesheets/shelves.css')
+
+block content
+  .shelves_title
+    h2= shelf.shelf_title
+  .movie_container
+      #shelf_container
+        .movie_covers
+          each movie in movies
+            a(href=`/movies/${movie.id}`)
+              img(src=`${movie.cover}`)

@@ -5,7 +5,6 @@ module.exports = {
     /*
       Add altering commands here.
       Return a promise to correctly handle asynchronicity.
-
       Example:
       */
     return queryInterface.bulkInsert('Movies', [
@@ -59,7 +58,7 @@ module.exports = {
         director: "George Lucas",
         main_actors: "Hayden Christensen, Natalie Portman, Ewan McGregor",
         release_year: "2002",
-        cover: "https://cdn.shopify.com/s/files/1/0057/3728/3618/products/ab770742e03f7cdeebe9e81aec488af8_98143a98-2c08-4d9e-9956-38dce70c738d_400x.jpg?v=1573591438",
+        cover: "https://m.media-amazon.com/images/I/61nFfWio-sL._AC_SY550_.jpg",
         summary: "Ten years after initially meeting, Anakin Skywalker shares a forbidden romance with Padmé Amidala, while Obi-Wan Kenobi investigates an assassination attempt on the senator and discovers a secret clone army crafted for the Jedi.",
         createdAt: new Date(),
         updatedAt: new Date(),
@@ -136,7 +135,7 @@ module.exports = {
         director: "James Cameron",
         main_actors: "Leonardo DiCaprio, Kate Winslet, Billy Zane, Kathy Bates",
         release_year: "1997",
-        cover: "https://upload.wikimedia.org/wikipedia/en/1/19/Titanic_%28Official_Film_Poster%29.png",
+        cover: "https://upload.wikimedia.org/wikipedia/en/1/18/Titanic_%281997_film%29_poster.png",
         summary: "A seventeen-year-old aristocrat falls in love with a kind but poor artist aboard the luxurious, ill-fated R.M.S. Titanic.",
         createdAt: new Date(),
         updatedAt: new Date()
@@ -444,7 +443,7 @@ module.exports = {
         director: "John McTiernan",
         main_actors: "Bruce Willis, Alan Rickman, Bonnie Bedelia, Reginald VelJohnson",
         release_year: "1998",
-        cover: "https://upload.wikimedia.org/wikipedia/en/7/7e/Die_hard.jpg",
+        cover: "https://m.media-amazon.com/images/M/MV5BZjRlNDUxZjAtOGQ4OC00OTNlLTgxNmQtYTBmMDgwZmNmNjkxXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg",
         summary: "An NYPD officer tries to save his wife and several others taken hostage by German terrorists during a Christmas party at the Nakatomi Plaza in Los Angeles.",
         createdAt: new Date(),
         updatedAt: new Date()
@@ -643,7 +642,6 @@ module.exports = {
     /*
       Add reverting commands here.
       Return a promise to correctly handle asynchronicity.
-
       Example:
       */
     return queryInterface.bulkDelete('Movies', null, {});
