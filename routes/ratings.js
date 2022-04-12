@@ -11,9 +11,10 @@ router.get('/ratings/new',
   csrfProtection,
   requireAuth,
   asyncHandler(async (req, res) => {
-  
+
   })
 );
+
 
 router.get(`/ratings/:ratingId/edit`,
   csrfProtection,
@@ -43,6 +44,9 @@ router.post(`/ratings/:ratingId/edit`,
     res.redirect(`/movies/${rating.movie_id}`)
   })
 )
+
+
+
 
 
 module.exports = router;
