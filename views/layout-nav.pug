@@ -10,6 +10,8 @@ block nav
       p #{user.firstName}, welcome to Good Movies!
         form(action="/logout" method='post')
           button.logoutButton(type="submit") Log Out
+        form(action="/about" method='get')
+          button.navButton(type="submit") About
     else
       form(action="/signup" method='get')
           button.navButton(type="submit") Sign Up
