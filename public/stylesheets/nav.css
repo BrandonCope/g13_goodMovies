@@ -85,6 +85,39 @@ button:hover {
   justify-content: flex-start;
 }
 
+.about-page-body {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.about-page-title {
+  font-size: 50px;
+
+}
+
+.team-list {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+}
+
+.team-member-name {
+  font-size: 25px;
+}
+
+.team-member {
+  background-color: rgb(223, 200, 176);
+  padding: 15px;
+  border-radius: 15px;
+  margin-bottom: 25px;
+  width: 225px;
+}
+
+.about-link:hover {
+  color: rgb(65, 153, 124);
+  
 .nav-buttons {
   display: flex;
   flex-direction: row;
