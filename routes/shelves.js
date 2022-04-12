@@ -2,7 +2,7 @@ const express = require('express');
 
 const { check, validationResult } = require('express-validator')
 const { asyncHandler, csrfProtection } = require('./utils');
-const { Shelf, User } = require('../db/models');
+const { Shelf, Movie, Movie_Shelf } = require('../db/models');
 const { requireAuth } = require('../auth');
 
 const router = express.Router();
@@ -26,13 +26,18 @@ router.get('/:shelfId',
   csrfProtection,
   requireAuth,
   asyncHandler(async (req, res) => {
-    const user_id = req.session.auth.userId;
+    const shelf_id = parseInt(req.params.shelfId, 10);
 
-    const shelfId = parseInt(req.params.shelfId, 10);
+    const shelf = await Shelf.findByPk(shelf_id)
 
-    const shelf = await Shelf.findByPk(shelfId)
+    const movies = await Movie.findAll({
+      include: [{
+        model: Shelf,
+        where: { id: shelf_id }
+      }],
+    })
 
-    res.render('shelf-edit', { title: "Shelf", shelf, csrfToken: req.csrfToken() })
+    res.render('shelf-detail', { title: "Shelf", shelf, movies, csrfToken: req.csrfToken() })
   })
 );
 

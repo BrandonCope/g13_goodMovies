@@ -39,3 +39,21 @@
   font-size: 20px;
   text-align: center;
 }
+
+
+#shelf_container {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+  width: auto;
+}
+
+.movie_covers {
+  margin-left: 40px;
+}
+
+.movie_covers>a>img {
+  height: 12rem;
+  width: 8rem;
+  margin-right: 10px;
+}

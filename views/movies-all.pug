@@ -13,6 +13,7 @@ block content
         .movie_covers
           each movie in actionMovies
             a(href=`/movies/${movie.id}`)
+              //- span#tooltip= movie.movie_title
               img(src=`${movie.cover}`)
       #genre_container
         .movie_genre Animation
