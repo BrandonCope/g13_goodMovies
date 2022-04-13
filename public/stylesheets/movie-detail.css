@@ -52,14 +52,16 @@
 }
 
 .leftHeader {
-  font-weight: bold;
   padding: 0 70px;
-  display: flex;
-  row-gap: 20px;
-  align-content: flex-start;
   margin: 10px 30px;
+  box-sizing: border-box;
+  width: 230px;
+  row-gap: 20px;
+  display: flex;
+  align-content: flex-start;
   color: rgb(68, 33, 17);
   font-family: 'Mukta', sans-serif;
+  font-weight: bold;
 }
 
 button.logoutButton {
@@ -104,4 +106,12 @@ button:hover {
 
 .review_right {
   padding-left: 40px
+}
+
+.custom-select-shelves {
+  margin: 0px 10px 0px 0px;
+  padding: 2px 5px;
+  width: auto;
+  border-radius: 5px;
+  border: solid 1px rgb(68, 33, 17);
 }

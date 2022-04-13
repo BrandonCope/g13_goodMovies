@@ -29,6 +29,36 @@ router.get('/',
   })
 );
 
+router.post('/',
+  csrfProtection,
+  requireAuth,
+  asyncHandler(async (req, res) => {
+    const user_id = req.session.auth.userId;
+
+    const {
+      shelf_id,
+      movie_id,
+    } = req.body
+
+    const addToShelf = await Movie_Shelf.create({
+      movie_id,
+      shelf_id
+    })
+
+    const shelves = await Shelf.findAll({
+      where: { user_id },
+      order: [['shelf_title', 'ASC']]
+    });
+
+    res.render('shelves', {
+      title: "Shelves",
+      addToShelf,
+      shelves,
+      csrfToken: req.csrfToken()
+    })
+  })
+);
+
 
 router.get('/:shelfId',
   csrfProtection,

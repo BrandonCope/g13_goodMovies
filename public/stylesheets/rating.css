@@ -20,7 +20,7 @@
 }
 
 .your_rating {
-    margin-left: 10px;
+    margin-left: 0px;
 }
 
 #rating_input {
@@ -94,8 +94,9 @@ h2 {
 select {
     height: 27.33px;
     width: 50px;
+    border: solid 1px rgb(68, 33, 17);
     border-radius: 5px;
-    margin-left: 10px;
+    /* margin-left: 10px; */
 }
 
 :checked {
