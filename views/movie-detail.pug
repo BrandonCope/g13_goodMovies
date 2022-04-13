@@ -42,21 +42,15 @@ block content
 
     #reviews_container
         form(class='review-form' action=`/movies/${movieId}` method="post")
-            h4 Write a review:
-            div errors should go in here
-                if !errors
-                    div here I am
-                    //- p#errors The following error(s) occurred:
-                    //-     ul#errors
-                    //-         each error in thisThing
-                    //-             li= error
-            div(class="title_summary_button")
-            form(method="post" action=`/reviewAPI`)
+            .review_left
+                h4 Write a review:
                 input(type="hidden" name="_csrf" value=csrfToken)
                 input(type="hidden" name="movieId" value=movieId)
                 input(type="text" class="review_title" name="review_title" placeholder="Review title...")
                 textarea(type="text" class="review_summary" name="summary" placeholder="Type review here...")
                 button(type="submit" id='review_button') Post Review
+            .review_right
+
         div.all-reviews-container
             +review (reviews)
     script(src="/javascripts/reviewsDOM.js" type="module")

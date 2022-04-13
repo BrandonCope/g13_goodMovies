@@ -87,5 +87,23 @@ reviewForm.addEventListener("submit", async (e) => {
 
         let newDelButton = document.getElementById(`${data.review.id}`);
         newDelButton.addEventListener("click", deleteDOM)
+    } else {
+        const errors = document.querySelector('.review_right')
+        errors.innerHTML = ''
+
+        const errorP = document.createElement('p')
+        errorP.setAttribute("id", 'errors')
+        errorP.innerHTML = '<b>The following error(s) occurred:</b>'
+        errors.append(errorP)
+
+        const errorUl = document.createElement('ul');
+        errorUl.setAttribute("id", 'errors')
+        errorP.append(errorUl)
+
+        for (let error of data.errors) {
+            let newLi = document.createElement('li')
+            newLi.innerHTML = error
+            errorUl.append(newLi)
+        }
     }
 })

@@ -10,12 +10,12 @@ const router = express.Router();
 const reviewValidators = [
   check('review_title')
     .exists({ checkFalsy: true })
-    .withMessage("Please provide value for a title for review.")
+    .withMessage("Please provide a review title.")
     .isLength({ max: 50 })
     .withMessage("Review must not be more that 50 characters long."),
   check('summary')
     .exists({ checkFalsy: true })
-    .withMessage("Please provide value for a review.")
+    .withMessage("Please provide a review summary.")
 ]
 
 router.post('/',
@@ -25,6 +25,7 @@ router.post('/',
   asyncHandler(async (req, res) => {
 
     const userId = req.session.auth.userId;
+
     const {
       movieId,
       review_title,
@@ -35,6 +36,8 @@ router.post('/',
 
     const validatorErrors = validationResult(req);
 
+    let errors = [1, 2, 3, 4]
+
     if (validatorErrors.isEmpty()) {
       const review = await Review.create({
         user_id: userId,
@@ -42,6 +45,7 @@ router.post('/',
         review_title,
         summary,
       })
+
       res.json({
         message: "Success",
         review,
@@ -50,14 +54,11 @@ router.post('/',
       })
 
     } else {
-      const thisThing = validatorErrors.array().map((error) => error.msg);
+      let errors = validatorErrors.array().map((error) => error.msg);
 
-      console.log("HERRRRRRRRRRRRRRRRREEEEEE", thisThing)
-
-      res.render('movie-detail', {
-        title: "Movie Details",
-        thisThing,
-        csrfToken: req.csrfToken()
+      res.json({
+        message: "fail",
+        errors
       })
     }
   })

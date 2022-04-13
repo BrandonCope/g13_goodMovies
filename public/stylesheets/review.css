@@ -22,24 +22,32 @@
     box-sizing: border-box;
     border-radius: 1rem;
     box-shadow: 0 0 10px 0 grey;
+    display: flex;
+    flex-direction: row;
+}
+
+.review_left {
+    display: flex;
+    flex-direction: column;
 }
 
 .title_summary_button {
     min-height: 10em;
     display: table-cell;
-    vertical-align: middle
+    vertical-align: middle;
+    width: 50vw;
 }
 
 h4 {
     font-size: 20px;
 }
 
-input {
+input.review_title {
     padding: 5px;
     margin: 10px;
+    width: 50vw;
     text-align: start;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    width: 100%;
     padding: 12px;
     border: 1px solid;
     border-radius: 4px;
@@ -47,12 +55,13 @@ input {
     resize: vertical;
 }
 
-textarea {
+textarea.review_summary {
     padding: 15px;
+    margin: 10px;
+    width: 50vw;
+    height: 5rem;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-align: start;
-    margin: 10px;
-    width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -82,6 +91,7 @@ h4 {
     vertical-align: middle;
     line-height: normal;
     box-shadow: 0 0 5px 0 grey;
+    cursor: pointer;
 }
 
 #review_button:hover {
