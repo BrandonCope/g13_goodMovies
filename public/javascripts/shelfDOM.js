@@ -76,8 +76,8 @@ shelfForm.addEventListener("submit", async (e) => {
     errors.innerHTML = ''
 
     const errorP = document.createElement('p')
-    errorP.setAttribute("id", 'errors')
-    errorP.innerHTML = '<b>The following error(s) occurred:</b>'
+    errorP.setAttribute("id", 'shelf_errors')
+    // errorP.innerHTML = '<b>The following error(s) occurred:</b>'
     errors.append(errorP)
 
     const errorUl = document.createElement('ul');
@@ -86,6 +86,7 @@ shelfForm.addEventListener("submit", async (e) => {
 
     for (let error of data.errors) {
       let newLi = document.createElement('li')
+      newLi.setAttribute("id", "shelf_error_li")
       newLi.innerHTML = error
       errorUl.append(newLi)
     }
