@@ -75,7 +75,11 @@ router.get('/:shelfId',
       }],
     })
 
-    res.render('shelf-detail', { title: "Shelf", shelf, movies, csrfToken: req.csrfToken() })
+    const shelfMovies = await Movie_Shelf.findAll({
+      where: {shelf_id}
+    })
+
+    res.render('shelf-detail', { title: "Shelf", shelf, movies, shelfMovies, csrfToken: req.csrfToken() })
   })
 );
 
@@ -96,7 +100,58 @@ router.post('/:shelfId/edit',
   requireAuth,
   asyncHandler(async (req, res) => {
 
+    const shelfId = parseInt(req.params.shelfId, 10);
+    const shelf = await Shelf.findByPk(shelfId)
+
+    shelf.shelf_title = req.body.shelf_title;
+
+    const validatorErrors = validationResult(req);
+
+    if (validatorErrors.isEmpty()) {
+      await shelf.save();
+      res.redirect(`/shelves/${shelf.id}`)
+    } else {
+      const errors = validatorErrors.array().map((error) => error.msg);
+      res.render('shelf-edit', {
+        title: "shelf",
+        shelf,
+        errors,
+        csrfToken: req.csrfToken()
+      })
+    }
   })
 );
+
+router.post('/:shelfId/delete',
+  csrfProtection,
+  requireAuth,
+  asyncHandler(async (req, res) => {
+    const shelfId = parseInt(req.params.shelfId, 10);
+    const shelf = await Shelf.findByPk(shelfId)
+    const shelfMovie = await Movie_Shelf.findAll({
+      where: { shelf_id:shelfId },
+    })
+
+    for(let movie of shelfMovie) {
+      await movie.destroy()
+    }
+
+    await shelf.destroy();
+
+
+    const user_id = req.session.auth.userId;
+
+    const shelves = await Shelf.findAll({
+      where: { user_id },
+      order: [['shelf_title', 'ASC']]
+    });
+
+    res.render('shelves', {
+      shelves,
+      csrfToken: req.csrfToken()
+    })
+  })
+);
+
 
 module.exports = router

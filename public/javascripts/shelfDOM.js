@@ -1,35 +1,50 @@
-// const deleteDOM = async (e) => {
-//   e.preventDefault();
-//   const reviewId = e.target.id
+const deleteDOM = async (e) => {
+  e.preventDefault();
+  const reviewId = e.target.id
 
-//   const res = await fetch(`/reviewApi/${reviewId}`, {
-//       method: "DELETE"
-//   })
-//   const data = await res.json()
+  const res = await fetch(`/reviewApi/${reviewId}`, {
+      method: "DELETE"
+  })
+  const data = await res.json()
 
-//   if (data.message === "Success") {
-//       const container = document.querySelector(`.review-container-${reviewId}`)
-//       container.remove()
-//   }
-// }
+  if (data.message === "Success") {
+      const container = document.querySelector(`.review-container-${reviewId}`)
+      container.remove()
+  }
+}
+let deleteMovieForm = document.querySelectorAll('.remove-movie-form')
+// let deleteButton = document.querySelectorAll(".remove-shelf-movie-button")
+deleteMovieForm.forEach((form) => {
+  form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      // const shelfMovieId = e.target.id
 
-// let deleteButton = document.querySelectorAll(".btn-delete")
-// deleteButton.forEach((button) => {
-//   button.addEventListener("click", async (e) => {
-//       e.preventDefault();
-//       const reviewId = e.target.id
 
-//       const res = await fetch(`/reviewApi/${reviewId}`, {
-//           method: "DELETE"
-//       })
-//       const data = await res.json()
+      const formData = new FormData(form);
+      const shelf_id = formData.get('shelf_id')
+      const shelfMovieId = formData.get('movie_id')
+      const _csrf = formData.get('_csrf')
 
-//       if (data.message === "Success") {
-//           const container = document.querySelector(`.review-container-${reviewId}`)
-//           container.remove()
-//       }
-//   })
-// })
+      const body = {
+        shelf_id,
+        _csrf
+      }
+
+      const res = await fetch(`/shelvesApi/${shelfMovieId}`, {
+          method: "DELETE",
+          body: JSON.stringify(body),
+          headers: {
+            "Content-Type": "application/json"
+          }
+      })
+      const data = await res.json()
+      
+      if (data.message === "Success") {
+          const container = document.querySelector(`.shelf-movie-container-${shelfMovieId}`)
+          container.remove()
+      }
+  })
+})
 
 
 let shelfForm = document.querySelector(".shelf-form")

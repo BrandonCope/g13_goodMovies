@@ -53,11 +53,19 @@ router.post('/',
   })
 );
 
-router.delete('/:shelfId',
+router.delete('/:shelfMovieId(\\d+)',
   csrfProtection,
-  requireAuth,
   asyncHandler(async (req, res) => {
+    const movie_id = parseInt(req.params.shelfMovieId, 10);
+    const {shelf_id} = req.body
+  
+    const shelfMovie = await Movie_Shelf.findOne({
+      where: {movie_id, shelf_id}
+    })
 
+    await shelfMovie.destroy()
+    res.json({message: "Success", csrfToken: req.csrfToken()})
+    // res.render('shelf-detail', { message: "Success", movies, csrfToken: req.csrfToken() })
   })
 );
 
