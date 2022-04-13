@@ -26,8 +26,6 @@ router.post('/',
       shelf_title
     } = req.body
 
-    console.log("IN POST ROUTEEEEEEEEEEE")
-
     const user = await User.findByPk(user_id);
 
     const validatorErrors = validationResult(req);

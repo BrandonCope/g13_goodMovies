@@ -7,10 +7,10 @@ block content
   .shelves_title
     h2 Movie Shelves:
     .shelf_errors
-    form(method="post" action="/shelves" class='shelf-form')
+    form(class='shelf-form' action='/shelves' method="post")
       input(type="hidden" name="_csrf" value=csrfToken)
       input(type="text" class="shelf_title" name="shelf_title" placeholder="Shelf title...")
-      button.add-shelf-button Add New Shelf
+      button(type="submit" class='add-shelf-button') Add New Shelf
   .shelves
     .shelf-tiles
       each shelf in shelves
@@ -18,3 +18,4 @@ block content
           a(href=`/shelves/${shelf.id}`)
             img(src='https://www.chicagofilmarchives.org/wp-content/uploads/2013/12/PageCollection_horizontal1.jpg' class='shelf-img')
             .shelf-title= shelf.shelf_title
+  script(src="/javascripts/shelfDOM.js" type="module")

@@ -21,8 +21,6 @@ router.get('/',
   asyncHandler(async (req, res) => {
     const user_id = req.session.auth.userId;
 
-    console.log("GET ROUTE SHELVESSSSSSSSSSSSSS")
-
     const shelves = await Shelf.findAll({
       where: { user_id },
       order: [['shelf_title', 'ASC']]

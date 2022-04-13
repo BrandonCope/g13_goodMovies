@@ -36,10 +36,7 @@ let shelfForm = document.querySelector(".shelf-form")
 shelfForm.addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  console.log("THIS IS FORM DATA1111111111111111")
-
   const formData = new FormData(shelfForm);
-  // const movieId = formData.get('movieId')
   const shelf_title = formData.get('shelf_title')
   const _csrf = formData.get('_csrf')
 
@@ -63,15 +60,15 @@ shelfForm.addEventListener("submit", async (e) => {
     const newShelf = document.createElement('div');
     newShelf.setAttribute("class", 'shelf-item')
 
-    console.log("--------------", newShelf)
-    newShelf.innerHTML = "<h1>HERE</h1>"
-    // `<a href='/shelves/${data.shelf.id}'>` +
-    // `<img src='https://www.chicagofilmarchives.org/wp-content/uploads/2013/12/PageCollection_horizontal1.jpg' class='shelf-img' />` +
-    // `<div class='shelf-title> ${data.shelf_title} </div>` +
-    // "</a>"
+    newShelf.innerHTML =
+      `<a href='/shelves/${data.shelf.id}'>` +
+      `<img src='https://www.chicagofilmarchives.org/wp-content/uploads/2013/12/PageCollection_horizontal1.jpg' class='shelf-img' />` +
+      `<div class='shelf-title'> ${data.shelf.shelf_title} </div> </a>`
 
-    container.append(newShelf)
+    container.insertBefore(newShelf, container.firstChild)
 
+    const shelfTitle = document.querySelector(".shelf_title")
+    shelfTitle.value = ""
     // let newDelButton = document.getElementById(`${data.review.id}`);
     // newDelButton.addEventListener("click", deleteDOM)
   } else {
