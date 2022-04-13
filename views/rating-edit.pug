@@ -15,12 +15,12 @@ block content
     .edit-rating-container
       form(method="post" action=`/ratings/${rating.id}/edit`)
         input(type="hidden" name="_csrf" value=csrfToken)
-        select(name="rating" value=rating.rating)
-          option(value="1") 1
-          option(value="2") 2
-          option(value="3") 3
-          option(value="4") 4
-          option(value="5") 5
+        select(name="rating")
+          option(value="1" selected=(rating.rating === 1)) 1
+          option(value="2" selected=(rating.rating === 2)) 2
+          option(value="3" selected=(rating.rating === 3)) 3
+          option(value="4" selected=(rating.rating === 4)) 4
+          option(value="5" selected=(rating.rating === 5)) 5
         button(type="submit" id='rating_button') Edit Rating
 
       a(href="javascript:history.go(-1)")

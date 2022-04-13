@@ -48,6 +48,7 @@
   text-align: start;
   margin-bottom: 100px;
   display: flex;
+  min-width: 585px;
 }
 
 .leftHeader {
@@ -99,4 +100,8 @@ button:hover {
 
 .all-reviews-container {
   margin: 20px;
+}
+
+.review_right {
+  padding-left: 40px
 }
