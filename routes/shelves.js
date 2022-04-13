@@ -21,6 +21,8 @@ router.get('/',
   asyncHandler(async (req, res) => {
     const user_id = req.session.auth.userId;
 
+    console.log("GET ROUTE SHELVESSSSSSSSSSSSSS")
+
     const shelves = await Shelf.findAll({
       where: { user_id },
       order: [['shelf_title', 'ASC']]
@@ -49,52 +51,6 @@ router.get('/:shelfId',
   })
 );
 
-
-router.post('/new',
-  csrfProtection,
-  requireAuth,
-  shelfValidators,
-  asyncHandler(async (req, res) => {
-    const user_id = req.session.auth.userId;
-
-    const {
-      shelf_title
-    } = req.body
-
-    const user = await User.findByPk(user_id);
-
-    const validatorErrors = validationResult(req);
-
-    if (validatorErrors.isEmpty()) {
-      await Shelf.create({
-        user_id,
-        shelf_title
-      })
-
-      const shelves = await Shelf.findAll({
-        where: { user_id },
-        order: [['shelf_title', 'ASC']]
-      });
-
-      res.render('shelves', {
-        title: "Shelves",
-        shelves,
-        csrfToken: req.csrfToken()
-      })
-
-    } else {
-      const errors = validatorErrors.array().map((error) => error.msg);
-
-      res.render('shelves', {
-        title: "Shelves",
-        errors,
-        csrfToken: req.csrfToken()
-      })
-    }
-  })
-);
-
-
 router.get('/:shelfId/edit',
   csrfProtection,
   requireAuth,
@@ -108,14 +64,6 @@ router.get('/:shelfId/edit',
 );
 
 router.post('/:shelfId/edit',
-  csrfProtection,
-  requireAuth,
-  asyncHandler(async (req, res) => {
-
-  })
-);
-
-router.delete('/:shelfId',
   csrfProtection,
   requireAuth,
   asyncHandler(async (req, res) => {
