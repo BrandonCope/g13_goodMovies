@@ -58,7 +58,6 @@ reviewForm.addEventListener("submit", async (e) => {
     });
 
     const data = await res.json();
-    console.log(data)
 
     if (data.message === "Success") {
         const container = document.querySelector('.user-review');

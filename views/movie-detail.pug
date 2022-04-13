@@ -44,7 +44,7 @@ block content
         form(class='review-form' action=`/movies/${movieId}` method="post")
             h4 Write a review:
             div errors should go in here
-                if thisThing
+                if !errors
                     div here I am
                     //- p#errors The following error(s) occurred:
                     //-     ul#errors
