@@ -16,9 +16,10 @@ const moviesRouter = require('./routes/movies');
 const reviewApiRouter = require('./routes/reviewAPI');
 const reviewsRouter = require('./routes/reviews')
 const ratingApiRouter = require('./routes/ratingAPI');
-const ratingRouter = require('./routes/ratings')
-const aboutRouter = require('./routes/about')
-const shelvesRouter = require('./routes/shelves')
+const ratingRouter = require('./routes/ratings');
+const aboutRouter = require('./routes/about');
+const shelvesRouter = require('./routes/shelves');
+const shelvesApiRouter = require('./routes/shelvesAPI');
 
 const app = express();
 
@@ -55,6 +56,7 @@ app.use(ratingRouter)
 app.use('/about', aboutRouter)
 app.use(ratingRouter);
 app.use('/shelves', shelvesRouter);
+app.use('/shelvesApi', shelvesApiRouter)
 
 
 // catch 404 and forward to error handler

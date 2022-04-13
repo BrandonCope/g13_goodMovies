@@ -6,7 +6,8 @@ append head
 block content
   .shelves_title
     h2 Movie Shelves:
-    form(method="post" action=`/shelves/new`)
+    .shelf_errors
+    form(method="post" action="/shelves" class='shelf-form')
       input(type="hidden" name="_csrf" value=csrfToken)
       input(type="text" class="shelf_title" name="shelf_title" placeholder="Shelf title...")
       button.add-shelf-button Add New Shelf

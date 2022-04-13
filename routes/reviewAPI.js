@@ -36,8 +36,6 @@ router.post('/',
 
     const validatorErrors = validationResult(req);
 
-    let errors = [1, 2, 3, 4]
-
     if (validatorErrors.isEmpty()) {
       const review = await Review.create({
         user_id: userId,
