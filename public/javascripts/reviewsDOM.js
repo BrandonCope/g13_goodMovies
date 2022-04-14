@@ -65,7 +65,7 @@ reviewForm.addEventListener("submit", async (e) => {
 
         newReview.setAttribute("class", `review-container-${data.review.id}`)
         newReview.innerHTML = "<div> <i> Posted by --  " + data.firstName + "</i> </div>" +
-            '<div> <b>' + data.review.review_title + "</b> </div>" +
+            '<div class="review-title"> <b>' + data.review.review_title + "</b> </div>" +
             '<div class="review-summary">' + data.review.summary + "</div>" +
             `<div style="display:flex" ><a href="/reviews/${data.review.id}/edit">` +
             `<button class='btn-edit' id="edit-${data.review.id}" type='submit'> Edit </button>` +

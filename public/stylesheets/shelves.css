@@ -36,9 +36,10 @@
   height: 35px;
   width: 185px;
   border-radius: 5px;
-  border: solid 1px rgb(68, 33, 17);
+  border: solid 1px #cccccc;
   padding: 2px 5px;
   color: rgb(68, 33, 17);
+  box-shadow: 0 0 5px 0 grey;
 }
 
 #shelf_errors {
@@ -152,8 +153,8 @@
   width: 200px;
   border-radius: 20px;
   box-shadow: 3px 3px 5px grey;
-}
 
+}
 
 .shelf-title {
   font-size: 18px;
@@ -182,12 +183,21 @@
   height: 12rem;
   width: 8rem;
   margin-right: 10px;
+  border-radius: 4px;
+  box-shadow: 0 0 5px 0 grey;
 }
 
-.custom-select-shelves {
+.movie_covers>div>a>img:hover {
+  transition: box-shadow .1s;
+  box-shadow: 0 0 5px 0 black;
+}
+
+/* .custom-select-shelves {
   width: auto;
-  border: 1px solid #ccc;
+  border: 1px solid #cccccc;
   box-shadow: 0 0 5px 0 grey;
+} */
+
 
 .edit-shelf-button {
   background: rgb(223, 200, 176);

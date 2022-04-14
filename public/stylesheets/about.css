@@ -21,6 +21,7 @@ body {
 
 .team-member-name {
   font-size: 25px;
+  text-align: center;
 }
 
 .team-member {
@@ -36,3 +37,11 @@ body {
   color: rgb(65, 153, 124);
 }
 
+#links-container {
+  padding-left: 15px;
+}
+
+#about_link_text {
+  font-family: 'Mukta', sans-serif;
+  margin-left: 10px;
+}
