@@ -17,8 +17,8 @@ block content
       input(type="hidden" name="_csrf" value=csrfToken)
       div
         .review_input_textarea
-          input(type="text" name="review_title" value=review.review_title)
-          textarea(type="text" name="summary" placeholder='Type review here...') #{review.summary}
+          input(type="text" class="edit-review-input" name="review_title" value=review.review_title)
+          textarea(type="text" class="edit-review-textarea" name="summary" placeholder='Type review here...') #{review.summary}
           button(type="submit" id='review_button') Edit Review
           a(href="javascript:history.go(-1)")
             button.review_cancel_button Cancel

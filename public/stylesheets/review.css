@@ -4,6 +4,7 @@
 
 .btn-edit {
     justify-content: center;
+    box-shadow: 0 0 5px 0 grey;
     margin: 10px;
     cursor: pointer;
 }
@@ -111,10 +112,10 @@ h4 {
 }
 
 .review_cancel_button {
-    margin: 10px 0px 10px 45px;
     background-color: rgb(244, 239, 235);
     display: inline-block;
     vertical-align: middle;
+    margin-left: 20px;
     line-height: normal;
     box-shadow: 0 0 5px 0 grey;
 }
@@ -122,4 +123,26 @@ h4 {
 .review_cancel_button:hover {
     background-color: rgb(223, 200, 176);
     box-shadow: 0 0 10px 0 grey;
+}
+
+.edit-review-input {
+    font-family: 'Mukta', sans-serif;
+    width: 400px;
+    border-radius: 4px;
+    margin-top: 15px;
+    margin-left: 10px;
+    font-size: 16px;
+    box-shadow: 0 0 5px 0 grey;
+}
+
+.edit-review-textarea {
+    height: 200px;
+    width: 400px;
+    border-radius: 4px;
+    font-family: 'Mukta', sans-serif;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 10px;
+    font-size: 16px;
+    box-shadow: 0 0 5px 0 grey;
 }
