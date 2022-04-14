@@ -28,6 +28,9 @@ block content
                         tr
                             td(class='leftHeader') Stars
                             td= movie.main_actors
+                        tr
+                            td(class='leftHeader') Average Rating
+                            td.avgRating= avgRating
                         tr.myRating
                             td(class='leftHeader') My Rating
                             td.ratingDom
@@ -41,10 +44,8 @@ block content
                                     select(name="shelf_id" class="custom-select-shelves" value=shelf_title)
                                         each shelf in shelves
                                             option(value=shelf.id)= shelf.shelf_title
-                                    button(type="submit") Add to Shelf
-                        //- tr
-                        //-     td(class='leftHeader') Average Rating
-                        //-     td= avgRating
+                                    button(type="submit" class="addToShelf") Add to Shelf
+
 
     #reviews_container
         form(class='review-form' action=`/movies/${movieId}` method="post")

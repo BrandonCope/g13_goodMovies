@@ -61,18 +61,18 @@ router.get('/:id(\\d+)',
 
     const user = reviews.User;
 
-    const ratings = await Rating.findAll({
-      where:
-        { movie_id: movieId },
-      include: User
-    })
-
     const rating = await Rating.findOne({
       where:
       {
         movie_id: movieId,
         user_id
       }
+    })
+
+    const ratings = await Rating.findAll({
+      where:
+        { movie_id: movieId },
+      include: User
     })
 
     let ratingId;

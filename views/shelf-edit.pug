@@ -6,8 +6,15 @@ append head
 block content
   .shelves_title
     h2 Edit Shelf Title
-    form(class='shelf-form' action=`/shelves/${shelf.id}/edit` method="post")
-      input(type="hidden" name="_csrf" value=csrfToken)
-      input(type="text" value=`${shelf.shelf_title}` class="shelf_title" name="shelf_title" placeholder="Shelf title...")
-      button(type="submit" class='add-shelf-button') Edit Shelf
-    .shelf_errors
+  .shelf_errors
+    if errors
+      ul#errors.edit-shelf-errors
+        each error in errors
+          li= error
+  form(class='shelf-form' id="edit-form-container" action=`/shelves/${shelf.id}/edit` method="post")
+    input(type="hidden" name="_csrf" value=csrfToken)
+    input(type="text" value=`${shelf.shelf_title}` class="shelf_title" name="shelf_title" placeholder="Shelf title...")
+    button(type="submit" class='add-shelf-button') Edit Shelf
+    .newbuttonDiv
+      a(href="javascript:history.go(-1)")
+        button(type="button" class='cancel-shelf-button') Cancel

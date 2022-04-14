@@ -20,15 +20,14 @@ ratingDelButton.forEach((button) => {
 
       newRating.setAttribute("id", `removableRatingForm`)
       newRating.innerHTML =
-        // `<form action="/movies/${data.movieId}" method='get'>` +
         `<a href="javascript:history.go(0)">` +
-        // `<input type='hidden' name='_csrf' value=csrfToken></input>` +
         `<button type="submit" id='rating_button'> Add New Rating </button> </a>`
-      // `</form>`
 
       containerAdd.appendChild(newRating)
 
-      rateForm.addEventListener("submit", ratingAddDOM)
+      const avgRatingDiv = document.querySelector(".avgRating")
+
+      avgRatingDiv.innerHTML = data.avgRating
     }
   })
 })
@@ -42,6 +41,7 @@ ratingForm.addEventListener("submit", async (e) => {
   const userId = formData.get('userId')
   const movieId = formData.get('movieId')
   const rating = formData.get('rating')
+  const avgRating = formData.get('avgRating')
   const _csrf = formData.get('_csrf')
 
   const body = {
@@ -70,7 +70,6 @@ ratingForm.addEventListener("submit", async (e) => {
     editRating.setAttribute("class", `edit_delete_rating_buttons`)
 
     editRating.innerHTML =
-      // `<div class='edit_delete_rating_buttons'>` +
       `<div id='user_rating' > ${data.newRating.rating} </div>` +
       `<a class='ratingDeleteBtn' href='/ratings/${data.newRating.id}/edit'>` +
       `<button class='btn-edit' id='edit-${data.newRating.id}' type='submit'> Edit Rating </button> </a>` +
@@ -79,9 +78,11 @@ ratingForm.addEventListener("submit", async (e) => {
       `<form action="/movies/${data.newRating.movie_id}" method='post'>` +
       `<input type='hidden' name='_csrf' value=csrfToken></input>` +
       `<button class='rate-btn-delete' type="submit" id='ratingDelete-${data.newRating.id}'> Delete Rating </button> </form> </div>`
-    // `</div>`
 
     containerAdd.appendChild(editRating)
+
+    const avgRatingDiv = document.querySelector(".avgRating")
+    avgRatingDiv.innerHTML = data.avgRating
 
     let ratingDelButton = document.querySelectorAll(".rate-btn-delete")
     ratingDelButton.forEach((button) => {
@@ -105,15 +106,13 @@ ratingForm.addEventListener("submit", async (e) => {
 
           newRating.setAttribute("id", `removableRatingForm`)
           newRating.innerHTML =
-            // `<form action="/movies/${data.movieId}" method='get'>` +
             `<a href="javascript:history.go(0)">` +
-            // `<input type='hidden' name='_csrf' value=csrfToken></input>` +
             `<button type="submit" id='rating_button'> Add New Rating </button> </a>`
-          // `</form>`
 
           containerAdd.appendChild(newRating)
 
-          rateForm.addEventListener("submit", ratingAddDOM)
+          const avgRatingDiv = document.querySelector(".avgRating")
+          avgRatingDiv.innerHTML = data.avgRating
         }
       })
     })

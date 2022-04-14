@@ -3,46 +3,46 @@ const deleteDOM = async (e) => {
   const reviewId = e.target.id
 
   const res = await fetch(`/reviewApi/${reviewId}`, {
-      method: "DELETE"
+    method: "DELETE"
   })
   const data = await res.json()
 
   if (data.message === "Success") {
-      const container = document.querySelector(`.review-container-${reviewId}`)
-      container.remove()
+    const container = document.querySelector(`.review-container-${reviewId}`)
+    container.remove()
   }
 }
 let deleteMovieForm = document.querySelectorAll('.remove-movie-form')
 // let deleteButton = document.querySelectorAll(".remove-shelf-movie-button")
 deleteMovieForm.forEach((form) => {
   form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      // const shelfMovieId = e.target.id
+    e.preventDefault();
+    // const shelfMovieId = e.target.id
 
 
-      const formData = new FormData(form);
-      const shelf_id = formData.get('shelf_id')
-      const shelfMovieId = formData.get('movie_id')
-      const _csrf = formData.get('_csrf')
+    const formData = new FormData(form);
+    const shelf_id = formData.get('shelf_id')
+    const shelfMovieId = formData.get('movie_id')
+    const _csrf = formData.get('_csrf')
 
-      const body = {
-        shelf_id,
-        _csrf
+    const body = {
+      shelf_id,
+      _csrf
+    }
+
+    const res = await fetch(`/shelvesApi/${shelfMovieId}`, {
+      method: "DELETE",
+      body: JSON.stringify(body),
+      headers: {
+        "Content-Type": "application/json"
       }
+    })
+    const data = await res.json()
 
-      const res = await fetch(`/shelvesApi/${shelfMovieId}`, {
-          method: "DELETE",
-          body: JSON.stringify(body),
-          headers: {
-            "Content-Type": "application/json"
-          }
-      })
-      const data = await res.json()
-      
-      if (data.message === "Success") {
-          const container = document.querySelector(`.shelf-movie-container-${shelfMovieId}`)
-          container.remove()
-      }
+    if (data.message === "Success") {
+      const container = document.querySelector(`.shelf-movie-container-${shelfMovieId}`)
+      container.remove()
+    }
   })
 })
 
@@ -92,7 +92,6 @@ shelfForm.addEventListener("submit", async (e) => {
 
     const errorP = document.createElement('p')
     errorP.setAttribute("id", 'shelf_errors')
-    // errorP.innerHTML = '<b>The following error(s) occurred:</b>'
     errors.append(errorP)
 
     const errorUl = document.createElement('ul');

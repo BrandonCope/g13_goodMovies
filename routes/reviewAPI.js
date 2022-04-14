@@ -68,6 +68,7 @@ router.delete('/:reviewId(\\d+)',
     const reviewId = parseInt(req.params.reviewId, 10);
     const review = await Review.findByPk(reviewId)
     await review.destroy()
+
     res.json({ message: "Success" })
   })
 )

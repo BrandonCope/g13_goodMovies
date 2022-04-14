@@ -9,17 +9,21 @@ block nav
     if locals.authenticated
       p #{user.firstName}, welcome to Good Movies!
       .nav-buttons
+        //- .other-buttons
         a(href="/shelves")
-          button.shelves-button(type="submit") My Shelves
-        .other-buttons
-          .logout-form
-            form(action="/logout" method='post')
-              button.logoutButton(type="submit") Log Out
-          a(href="/about")
-            button.navButton(type="submit") About the Developers
+          button.shelves-button#navbutton(type="submit") My Shelves
+        //- a(href="/watched")
+        //-   button.shelves-button#navbutton(type="submit") Watched Movies
+        //- .other-buttons
+        a(href="/about")
+          button.navButton#navbutton(type="submit") The Developers
+        .logout-form
+          form(action="/logout" method='post')
+            button.logoutButton#navbutton(type="submit") Log Out
     else
-      form(action="/signup" method='get')
-          button.navButton(type="submit") Sign Up
-      div
-        form(action="/login" method='get')
-          button.navButton(type="submit") Log In
+      .unauth-nav-buttons
+        form(action="/signup" method='get')
+            button.navButton(type="submit") Sign Up
+        div
+          form(action="/login" method='get')
+            button.navButton#login(type="submit") Log In
