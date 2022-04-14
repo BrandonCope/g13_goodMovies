@@ -19,7 +19,7 @@ block content
       each movie in movies
         div(class=`shelf-movie-container-${movie.id}` id='single-movie-tile')
           a(href=`/movies/${movie.id}`)
-            img(src=`${movie.cover}`)
+            img#onShelfimg(src=`${movie.cover}`)
           form(action=`/shelves/${shelf.id}` method='post' class='remove-movie-form')
             input(type="hidden" name="_csrf" value=csrfToken)
             input(type="hidden" name="shelf_id" value=`${shelf.id}`)

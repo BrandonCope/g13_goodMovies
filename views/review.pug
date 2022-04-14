@@ -11,7 +11,7 @@ mixin review (reviews)
                     b= review.review_title
                 div(class=`review-summary`)= review.summary
                 div(class="edit_delete_buttons")
-                    if userId === review.User.id
+                    if user_id === review.User.id
                         a(href=`/reviews/${review.id}/edit`)
                             button(class='btn-edit' id=`edit-${review.id}` type='submit') Edit
                         form(action=`/movies/${movieId}` method='post')
