@@ -11,8 +11,8 @@ const shelfValidators = [
   check('shelf_title')
     .exists({ checkFalsy: true })
     .withMessage("Please provide value for shelf title.")
-    .isLength({ max: 50 })
-    .withMessage("Title may not be more that 50 characters long.")
+    .isLength({ max: 30 })
+    .withMessage("Title may not be more that 30 characters long.")
 ]
 
 router.get('/',
@@ -76,7 +76,7 @@ router.get('/:shelfId',
     })
 
     const shelfMovies = await Movie_Shelf.findAll({
-      where: {shelf_id}
+      where: { shelf_id }
     })
 
     res.render('shelf-detail', { title: "Shelf", shelf, movies, shelfMovies, csrfToken: req.csrfToken() })
@@ -98,6 +98,7 @@ router.get('/:shelfId/edit',
 router.post('/:shelfId/edit',
   csrfProtection,
   requireAuth,
+  shelfValidators,
   asyncHandler(async (req, res) => {
 
     const shelfId = parseInt(req.params.shelfId, 10);
@@ -129,10 +130,10 @@ router.post('/:shelfId/delete',
     const shelfId = parseInt(req.params.shelfId, 10);
     const shelf = await Shelf.findByPk(shelfId)
     const shelfMovie = await Movie_Shelf.findAll({
-      where: { shelf_id:shelfId },
+      where: { shelf_id: shelfId },
     })
 
-    for(let movie of shelfMovie) {
+    for (let movie of shelfMovie) {
       await movie.destroy()
     }
 
