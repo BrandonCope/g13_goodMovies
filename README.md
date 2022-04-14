@@ -1,10 +1,41 @@
 # Express Project -- Good Movies
 
-* Features & functionality:  Good Movies is an online library for films, providing authenticated users with access to the Good Movie users' average rating, user reviews, and other movie details. Future functionality of the site includes the option to mark movies as "watched" and great "movie shelves" for your own personal sorting.
+## Access live site:
+https://good-movies-13.herokuapp.com/
+### Access to wiki docs:  
+https://github.com/BrandonCope/g13_goodMovies/wiki
 
-* Access live site:  https://good-movies-13.herokuapp.com/
-* Access to wiki docs:  https://github.com/BrandonCope/g13_goodMovies/wiki
 
+## Features & functionality:  
+Good Movies is an online library for films, providing authenticated users with access to the Good Movie users' average rating, user reviews, and other movie details. Future functionality of the site to include customizable "movie shelves" for your own personal sorting and the option to mark movies as "watched."
+
+
+## Getting Started
+1. Clone repository:
+  * git@github.com:BrandonCope/g13_goodMovies.git
+
+2. Install dependencies from root directory:
+  * npm install
+
+3. Create Postgresql user "good_movies_app" in PSQL:
+  * CREATE USER good_movies_app with CREATEDB PASSWORD 'your password here';
+
+4. Create an .env file in backend directory based on .env.example.
+
+5. Enter your username and password to the .env file along with database name "good_movies," SECRET_SESSION key, and port number (preferred 8080).
+ 
+6. Create database, migrate models, seed models:
+  * npx dotenv sequelize db:create
+  * npx dotenv sequelize db:migrate
+  * npx dotenv sequelize db:seed:all
+ 
+7. Start server; if this does not automatically open in browser, navigate to http://localhost:8080:
+  * npm start
+
+8. Create an account or use Demo login to access GoodMovies features.
+
+
+## Project details:
 * Discussion of technologies used -- 
 We used Express with DOM manipulation and CSS styling.
 * Discussion of two features that show off the team's technical abilities -- 
