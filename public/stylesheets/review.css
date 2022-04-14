@@ -51,9 +51,11 @@ input.review_title {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     padding: 12px;
     border: 1px solid;
+    border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
     resize: vertical;
+    box-shadow: 0 0 5px 0 grey;
 }
 
 textarea.review_summary {
@@ -68,6 +70,7 @@ textarea.review_summary {
     border-radius: 4px;
     box-sizing: border-box;
     resize: vertical;
+    box-shadow: 0 0 5px 0 grey;
 }
 
 h4 {
@@ -132,6 +135,7 @@ h4 {
     margin-top: 15px;
     margin-left: 10px;
     font-size: 16px;
+    border: 1px solid #ccc;
     box-shadow: 0 0 5px 0 grey;
 }
 
@@ -144,5 +148,45 @@ h4 {
     margin-bottom: 30px;
     margin-left: 10px;
     font-size: 16px;
+    border: 1px solid #ccc;
     box-shadow: 0 0 5px 0 grey;
+}
+
+.review-container-1, .review-container-2, .review-container-3, .review-container-4, .review-container-5, .review-container-6, .review-container-7, .review-container-8, .review-container-9, .review-container-10,
+.review-container-11, .review-container-12, .review-container-13, .review-container-14, .review-container-15, .review-container-16, .review-container-17, .review-container-18, .review-container-19, .review-container-20,
+.review-container-21, .review-container-22, .review-container-23, .review-container-24, .review-container-25, .review-container-26, .review-container-27, .review-container-28, .review-container-29, .review-container-30,
+.review-container-31, .review-container-32, .review-container-33, .review-container-34, .review-container-35, .review-container-36, .review-container-37, .review-container-38, .review-container-39, .review-container-40,
+.review-container-41, .review-container-42, .review-container-43, .review-container-44, .review-container-45, .review-container-46, .review-container-47, .review-container-48, .review-container-49, .review-container-50,
+.review-container-51, .review-container-52, .review-container-53, .review-container-54, .review-container-55, .review-container-56, .review-container-57, .review-container-58, .review-container-59, .review-container-60,
+.review-container-61, .review-container-62, .review-container-63, .review-container-64, .review-container-65, .review-container-66, .review-container-67, .review-container-68, .review-container-69, .review-container-70,
+.review-container-71, .review-container-72, .review-container-73, .review-container-74, .review-container-75, .review-container-76, .review-container-77, .review-container-78, .review-container-79, .review-container-80,
+.review-container-81, .review-container-82, .review-container-83, .review-container-84, .review-container-85, .review-container-86, .review-container-87, .review-container-88, .review-container-89, .review-container-90,
+.review-container-91, .review-container-92, .review-container-93, .review-container-94, .review-container-95, .review-container-96, .review-container-97, .review-container-98, .review-container-99, .review-container-100  {
+    height: 190px;
+    border-bottom: 2px solid #ccc;
+    max-width:100%;
+}
+
+.review-title {
+    font-size: 17px;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    /* inline-size: 100%; */
+    overflow-wrap:normal;
+}
+
+.review-summary {
+    font-size: 17px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    inline-size:auto;
+    overflow-wrap: break-word;
+}
+
+i {
+    font-size: 16px;
+    font-weight: 200;
+    color: grey;
 }

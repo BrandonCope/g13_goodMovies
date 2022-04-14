@@ -90,4 +90,6 @@
 
 .custom-select-shelves {
   width: auto;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 5px 0 grey;
 }
