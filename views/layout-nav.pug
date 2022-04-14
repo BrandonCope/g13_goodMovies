@@ -12,8 +12,8 @@ block nav
         //- .other-buttons
         a(href="/shelves")
           button.shelves-button#navbutton(type="submit") My Shelves
-        a(href="/watched")
-          button.shelves-button#navbutton(type="submit") Watched Movies
+        //- a(href="/watched")
+        //-   button.shelves-button#navbutton(type="submit") Watched Movies
         //- .other-buttons
         a(href="/about")
           button.navButton#navbutton(type="submit") The Developers
@@ -21,8 +21,9 @@ block nav
           form(action="/logout" method='post')
             button.logoutButton#navbutton(type="submit") Log Out
     else
-      form(action="/signup" method='get')
-          button.navButton(type="submit") Sign Up
-      div
-        form(action="/login" method='get')
-          button.navButton(type="submit") Log In
+      .unauth-nav-buttons
+        form(action="/signup" method='get')
+            button.navButton(type="submit") Sign Up
+        div
+          form(action="/login" method='get')
+            button.navButton#login(type="submit") Log In
