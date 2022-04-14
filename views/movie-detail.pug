@@ -2,7 +2,7 @@ extends layout-nav
 
 include review.pug
 include rating-section.pug
-include shelves-section.pug
+//- include shelves-section.pug
 
 append head
     link(rel='stylesheet' href='/stylesheets/movie-detail.css')
@@ -28,9 +28,9 @@ block content
                         tr
                             td(class='leftHeader') Stars
                             td= movie.main_actors
-                        //- tr
-                        //-     td(class='leftHeader') Average Rating
-                        //-     td= avgRating
+                        tr
+                            td(class='leftHeader') Average Rating
+                            td.avgRating= avgRating
                         tr.myRating
                             td(class='leftHeader') My Rating
                             td.ratingDom
@@ -38,7 +38,14 @@ block content
                         tr
                             td(class='leftHeader') Add to Shelf
                             td
-                                +shelves(shelf)
+                                form(action='/shelves' method="post")
+                                    input(type="hidden" name="_csrf" value=csrfToken)
+                                    input(type="hidden" name="movie_id" value=movie.id)
+                                    select(name="shelf_id" class="custom-select-shelves" value=shelf_title)
+                                        each shelf in shelves
+                                            option(value=shelf.id)= shelf.shelf_title
+                                    button(type="submit" class="addToShelf") Add to Shelf
+
 
     #reviews_container
         form(class='review-form' action=`/movies/${movieId}` method="post")

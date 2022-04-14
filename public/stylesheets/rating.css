@@ -4,23 +4,17 @@
 }
 
 .edit_delete_rating_buttons {
-    margin-left: 30px;
     display: flex;
     flex-direction: row;
 }
 
-.myRating {
-    display: flex;
-    /* flex-direction: row; */
-}
-
-.ratingDom {
+/* .ratingDom {
     display: inline-block;
     align-items: flex-start;
-}
+} */
 
 .your_rating {
-    margin-left: 10px;
+    margin-left: 0px;
 }
 
 #rating_input {
@@ -29,7 +23,7 @@
 
 #user_rating {
     font-weight: bold;
-    margin: 10px 10px 5px 0px;
+    margin: 10px 25px 5px 0px;
 }
 
 #ratingDeleteContainer {
@@ -84,8 +78,8 @@ h2 {
     border-radius: 4px;
     border-color: rgb(68, 33, 17);
     border: 1px solid;
-    margin-left: 10px;
-    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     font-weight: 600;
     margin-right: 20px;
     cursor: pointer;
@@ -96,8 +90,9 @@ h2 {
 select {
     height: 27.33px;
     width: 50px;
+    border: solid 1px rgb(68, 33, 17);
     border-radius: 5px;
-    margin-left: 10px;
+    /* margin-left: 10px; */
 }
 
 :checked {
@@ -115,7 +110,7 @@ select {
     display: flex;
 }
 
-
+#rating_button:hover,
 button:hover {
     background-color: rgb(244, 239, 235);
     box-shadow: 0 0 5px 0 grey;

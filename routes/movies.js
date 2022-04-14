@@ -3,7 +3,7 @@ const express = require('express');
 const { Op } = require('sequelize')
 const { check, validationResult } = require('express-validator')
 const { asyncHandler, csrfProtection } = require('./utils');
-const { Movie, Review, Rating, User } = require('../db/models');
+const { Movie, Review, Rating, User, Shelf } = require('../db/models');
 const { requireAuth } = require('../auth');
 
 const router = express.Router()
@@ -50,7 +50,7 @@ router.get('/:id(\\d+)',
   asyncHandler(async (req, res) => {
     const movieId = parseInt(req.params.id, 10);
     const movie = await Movie.findByPk(movieId)
-    const userId = req.session.auth.userId
+    const user_id = req.session.auth.userId
 
     const reviews = await Review.findAll({
       where: {
@@ -61,18 +61,18 @@ router.get('/:id(\\d+)',
 
     const user = reviews.User;
 
-    const ratings = await Rating.findAll({
-      where:
-        { movie_id: movieId },
-      include: User
-    })
-
     const rating = await Rating.findOne({
       where:
       {
         movie_id: movieId,
-        user_id: userId
+        user_id
       }
+    })
+
+    const ratings = await Rating.findAll({
+      where:
+        { movie_id: movieId },
+      include: User
     })
 
     let ratingId;
@@ -93,7 +93,12 @@ router.get('/:id(\\d+)',
       avgRating = (sumRating / count).toFixed(1)
     })
 
-    res.render('movie-detail', { title: 'Movie Detail', movie, reviews, avgRating, rating, ratingId, csrfToken: req.csrfToken(), movieId, userId })
+    const shelves = await Shelf.findAll({
+      where: { user_id },
+      order: [['shelf_title', 'ASC']]
+    });
+
+    res.render('movie-detail', { title: 'Movie Detail', movie, reviews, avgRating, rating, ratingId, csrfToken: req.csrfToken(), movieId, user_id, shelves })
   })
 )
 

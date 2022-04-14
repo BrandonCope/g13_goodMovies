@@ -11,10 +11,11 @@ mixin rating(section)
               each error in errors
                 li= error
       form(class='rating-form' action=`/movies/${movieId}` method="post")
-        h4.your_rating Rate this movies (1-5):
+        h4.your_rating Rate this movie (1-5):
         input(type="hidden" name="_csrf" value=csrfToken)
         input(type="hidden" name="user_id" value=user_id)
         input(type="hidden" name="movieId" value=movieId)
+        input(type="hidden" name="avgRating" value=avgRating)
         //- input(type="text" id="rating_input" )
         select(name="rating" class="custom-select" value=rating)
           option(value="1") 1

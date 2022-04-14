@@ -11,8 +11,8 @@ const shelfValidators = [
   check('shelf_title')
     .exists({ checkFalsy: true })
     .withMessage("Please provide value for shelf title.")
-    .isLength({ max: 50 })
-    .withMessage("Title may not be more that 50 characters long.")
+    .isLength({ max: 30 })
+    .withMessage("Title may not be more that 30 characters long.")
 ]
 
 router.post('/',
@@ -25,8 +25,6 @@ router.post('/',
     const {
       shelf_title
     } = req.body
-
-    console.log("IN POST ROUTEEEEEEEEEEE")
 
     const user = await User.findByPk(user_id);
 
@@ -55,11 +53,19 @@ router.post('/',
   })
 );
 
-router.delete('/:shelfId',
+router.delete('/:shelfMovieId(\\d+)',
   csrfProtection,
-  requireAuth,
   asyncHandler(async (req, res) => {
+    const movie_id = parseInt(req.params.shelfMovieId, 10);
+    const { shelf_id } = req.body
 
+    const shelfMovie = await Movie_Shelf.findOne({
+      where: { movie_id, shelf_id }
+    })
+
+    await shelfMovie.destroy()
+    res.json({ message: "Success", csrfToken: req.csrfToken() })
+    // res.render('shelf-detail', { message: "Success", movies, csrfToken: req.csrfToken() })
   })
 );
 

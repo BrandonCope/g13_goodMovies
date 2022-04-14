@@ -6,9 +6,23 @@ append head
 block content
   .shelves_title
     h2= shelf.shelf_title
-  .movie_container
-      #shelf_container
-        .movie_covers
-          each movie in movies
-            a(href=`/movies/${movie.id}`)
-              img(src=`${movie.cover}`)
+    .shelf_buttons_div
+      a(href=`/shelves/${shelf.id}/edit`)
+        button(type='submit' class='edit-shelf-button') Edit Shelf Title
+      form(action=`/shelves/${shelf.id}/delete` method='post')
+        input(type="hidden" name="_csrf" value=csrfToken)
+        button(type='submit' class='delete-shelf-button') Delete Shelf
+
+  //- .movie_container
+  #shelf_container
+    .movie_covers
+      each movie in movies
+        div(class=`shelf-movie-container-${movie.id}` id='single-movie-tile')
+          a(href=`/movies/${movie.id}`)
+            img(src=`${movie.cover}`)
+          form(action=`/shelves/${shelf.id}` method='post' class='remove-movie-form')
+            input(type="hidden" name="_csrf" value=csrfToken)
+            input(type="hidden" name="shelf_id" value=`${shelf.id}`)
+            input(type="hidden" name="movie_id" value=`${movie.id}`)
+            button(type='submit' id=`${movie.id}` class='remove-shelf-movie-button') Remove
+  script(src="/javascripts/shelfDOM.js" type="module")
