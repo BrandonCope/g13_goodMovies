@@ -43,8 +43,14 @@ img {
   height: 12rem;
   width: 8rem;
   margin-right: 10px;
+  border-radius: 4px;
+  box-shadow: 0 0 5px 0 grey;
 }
 
+img:hover {
+  transition: box-shadow .1s;
+  box-shadow: 0 0 5px 0 black;
+}
 
 #tooltip {
   position: absolute;

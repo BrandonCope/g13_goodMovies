@@ -15,7 +15,7 @@ block content
     .edit-rating-container
       form(method="post" action=`/ratings/${rating.id}/edit`)
         input(type="hidden" name="_csrf" value=csrfToken)
-        select(name="rating")
+        select(name="rating" class="edit-select-rating")
           option(value="1" selected=(rating.rating === 1)) 1
           option(value="2" selected=(rating.rating === 2)) 2
           option(value="3" selected=(rating.rating === 3)) 3
